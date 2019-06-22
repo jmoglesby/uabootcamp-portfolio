@@ -1,10 +1,6 @@
 body {
-    background: url('bg.jpeg') no-repeat center center fixed transparent;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
     font-family: 'Raleway', sans-serif;
+	margin: 0;
 }
 
 h1 {
@@ -22,6 +18,13 @@ h2 {
     margin-bottom: 0;
 }
 
+h3 {
+	text-align: center;
+	font-size: 28px;
+	font-weight: normal;
+	margin-top: 60px;
+}
+
 .bio {
     color: white;
     font-size: 14px;
@@ -34,6 +37,16 @@ h2 {
     border-style: solid;
     border-color: hsla(0, 0%, 0%, 0.40);
     margin-top: 40px;
+}
+
+.about-container {
+    background: url(bg2.jpeg) center center no-repeat fixed;
+	background-size: cover;
+	-webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+	height:  600px;
+	opacity: 1;
 }
 
 .about {
@@ -54,4 +67,21 @@ h2 {
     background-color: hsla(0, 0%, 0%, 0.46);
     padding: 0px 15px 10px 15px;
     border-radius: 15px;
+}
+
+.yellow {
+	border-top: 5px double green;
+	width: 350px;
+}
+
+.box {
+	float: left;
+	background-color: #AAA;
+	width: 42.5%;
+	margin-left: 5%;
+	margin-top: 80px;
+}
+
+.clear {
+	clear: both;
 }
