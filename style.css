@@ -1,0 +1,57 @@
+body {
+    background: url('bg2.jpeg') no-repeat center center fixed transparent;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    font-family: 'Raleway', sans-serif;
+}
+
+h1 {
+    color: #f5f5ffa8;
+    font-size: 50px;
+    font-weight: normal;
+    margin-bottom: 0;
+    text-shadow: black 3px 3px 3px;
+}
+
+h2 {
+    color: lightgray;
+    font-size: 18px;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.bio {
+    color: white;
+    font-size: 14px;
+    margin-top: 35px;
+}
+
+.me {
+    height: 150px;
+    border-radius: 100%;
+    border-style: solid;
+    border-color: hsla(0, 0%, 0%, 0.40);
+    margin-top: 40px;
+}
+
+.about {
+    width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.gray {
+    height: 3px;
+    background-color: lightgray;
+    border: none;
+    width: 230px;
+}
+
+.content {
+    background-color: hsla(0, 0%, 0%, 0.46);
+    padding: 0px 15px 10px 15px;
+    border-radius: 15px;
+}
