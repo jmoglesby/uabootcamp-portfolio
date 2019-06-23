@@ -30,6 +30,15 @@ h4 {
 	font-size: 24px;
 }
 
+pre {
+	box-shadow: 0px 3px 5px #444;
+}
+
+img {
+	box-shadow: 0px 3px 5px #444;
+	border-radius: 10px;
+}
+
 .bio {
     color: white;
     font-size: 14px;
@@ -97,4 +106,17 @@ h4 {
 
 .full-width {
 	width: 100%;
+}
+
+.skill-and-tools {
+	max-width: 400px;
+	margin: 40px auto;
+}
+
+.icons {
+	text-align: center;
+}
+
+.icon {
+	margin: 30px 0;
 }

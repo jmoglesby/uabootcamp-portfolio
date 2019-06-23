@@ -1,48 +1,52 @@
 <html>
-    <head>
-        <link rel="stylesheet" type="text/css" href="style.css">
-        <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
-		
-		<link
-		    rel="stylesheet"
-		    href="prism-xonokai.css"
-		    type="text/css"
-		    media="screen"
-		  />
-		
-		  <script type="text/javascript" src="prism.js"></script>
-		  <script type="text/javascript" src="prism.ruby.js"></script>
-    </head>
-
-    <body>
-        <div class="about-container">
-            <div class="about">
-                <img src="me.jpg" class="me"/>
-                <div class="content">
-                    <h1>Jeremy Oglesby</h1>
-                    <h2>SOFTWARE DEVELOPER</h2>
-                    <hr class="gray"/>
-                    <p class="bio">
-                        A self-taught software developer with 
-                        experience in Ruby on Rails and React. 
-                        Jeremy lives in Phoenix, AZ with his wife
-                        and 3 children.
-                    </p>
-                </div>
-            </div>
-        </div>
-		<h3>Code Snippets</h3>
-		<hr class="break" />
-		<div class="box">
-			<h4>Temperature Conversion</h4>
-			<p>
-				This Ruby program will prompt the user for a temperature
-				in degrees Celsius and let the user know what the
-				corresponding temperature is in Fahrenheit.
-			</p>
+<head>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	
+	<link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+	
+	<link
+    rel="stylesheet"
+    href="prism/prism-xonokai.css"
+    type="text/css"
+    media="screen" />
+	
+	  <script type="text/javascript" src="prism/prism.js"></script>
+	  <script type="text/javascript" src="prism/prism.ruby.js"></script>
+</head>
+<body>
+	<div class="about-container">
+		<div class="about">
+			<img src="me.jpg" class="me" />
+			
+			<div class="content">
+				<h1>Jeremy Oglesby</h1>
+				
+				<h2>SOFTWARE DEVELOPER</h2>
+				
+				<hr class="gray" />
+				
+				<p class="bio">A self-taught software developer with 
+                    experience in Ruby on Rails and React. 
+                    Jeremy lives in Phoenix, AZ with his wife
+                    and 3 children.</p>
+			</div>
 		</div>
-		<div class="box">
-<pre><code class="language-ruby">def convert_celsius_to_fahrenheit cels
+	</div>
+	
+	<h3>Code Snippets</h3>
+	
+	<hr class="break" />
+	
+	<div class="box">
+		<h4>Temperature Conversion</h4>
+		
+		<p>This Ruby program will prompt the user for a temperature
+			in degrees Celsius and let the user know what the
+			corresponding temperature is in Fahrenheit.</p>
+	</div>
+	
+	<div class="box">
+		<pre><code class="language-ruby">def convert_celsius_to_fahrenheit cels
     cels * 1.8 + 32
 end
 
@@ -50,10 +54,12 @@ puts &quot;Enter a temperature in Celcius:&quot;
 to_convert = gets.chomp.to_f
 
 puts 'The temperature is #{convert_celsius_to_fahrenheit(to_convert)}℉.'</code></pre>
-		</div>
-		<br class="clear" />
-		<div class="box">
-<pre><code class="language-ruby">puts &quot;Enter a number:&quot;
+	</div>
+	
+	<br class="clear" />
+	
+	<div class="box">
+		<pre><code class="language-ruby">puts &quot;Enter a number:&quot;
 num = gets.chomp.to_i
 
 def get_ordinal number
@@ -73,27 +79,29 @@ def get_ordinal number
 end
 
 puts &quot;The ordinal version of that number is #{num}#{get_ordinal(num)}.&quot;</code></pre>
-		</div>
-		<div class="box">
-			<h4>Ordinal Challenge</h4>
-			<p>
-				This Ruby program will convert a plain number
-				to the ordinal of the number. So for example,
-				if the user enters 2, it will display 2nd, if
-				the user enters 3, it will display 3rd, etc.
-			</p>
-		</div>
-		<br class="clear" />
-		<div class="box">
-			<h4>Foobar</h4>
-			<p>
-				This Ruby program is an adaptation of a classic technical
-				interview problem which displays sequences
-				of the Foobar pattern.
-			</p>
-		</div>
-		<div class="box">
-<pre><code class="language-ruby">puts &quot;How many turns of FooBar should we play?&quot;
+	</div>
+	
+	<div class="box">
+		<h4>Ordinal Challenge</h4>
+		
+		<p>This Ruby program will convert a plain number
+			to the ordinal of the number. So for example,
+			if the user enters 2, it will display 2nd, if
+			the user enters 3, it will display 3rd, etc.</p>
+	</div>
+	
+	<br class="clear" />
+	
+	<div class="box">
+		<h4>Foobar</h4>
+		
+		<p>This Ruby program is an adaptation of a classic technical
+			interview problem which displays sequences
+			of the Foobar pattern.</p>
+	</div>
+	
+	<div class="box">
+		<pre><code class="language-ruby">puts &quot;How many turns of FooBar should we play?&quot;
 turns = gets.chomp.to_i
 
 def foobar turns
@@ -124,69 +132,105 @@ def foobar turns
 end
 
 puts foobar(turns).inspect</code></pre>
-		</div>
-		<br class="clear" />
-		<h3>Web Apps</h3>
-		<hr class="break" />
-		<div class="box">
-			<h4>Quote Generator</h4>
-			<img src="splurty.png" class="full-width" />
-			<p>
-				A database-powered quote generator with a mobile-first
-				design, using the Ruby on Rails framework, HTML, and CSS.
-				Uses Git and GitHub for version control, and launched
-				on Heroku.
-			</p>
-		</div>
-		<div class="box">
-			<h4>Yelp Clone</h4>
-			<img src="nomster.png" class="full-width" />
-			<p>
-		        A Yelp clone that integrates with the Google Maps API
-		        and includes features like user comments, star ratings,
-		        image uploading, and user authentication.
-			</p>
-	    </div>
-	    <br class="clear" />
+	</div>
 	
-	    <div class="box">
-			<h4>Two-Sided Market Place</h4>
-			<img src="flixter.png" class="full-width" />
-			<p>
-		        A two-sided, video-streaming marketplace platform that
-		        features credit card payment capabilities, user role
-		        management, complex user interfaces, and advanced
-		        database relationships.
-			</p>
-	    </div>
-	    <div class="box">
-			<h4>Test Driven Development</h4>
-			<img src="grammable.png" class="full-width" />
-			<p>
-		        An Instagram clone that was built using industry-standard, test-driven
-		        development following numerous red/green/refactor cycles.
-			</p>
-	    </div>
-	    <br class="clear" />
-	    <div class="box">
-			<h4>Single Page Todo Application</h4>
-			<img src="todoster.png" class="full-width" />
-			<p>
-		        This single-page to-do application features a
-		        fluid user interface that– by using JavaScript–
-		        allows users to rapidly add dynamic content.
-			</p>
-	    </div>
-	    <div class="box">
-			<h4>Agile Team Project</h4>
-			<img src="chess.png" class="full-width" />
-			<p>
-		        Worked on an Agile software development team building
-		        a chess application. Under the guidance of a senior software engineer,
-		        we had weekly Agile team meetings for code reviews, sprint planning,
-		        and feature assignments.
-			</p>
-	    </div>
-	    <br class="clear" />
-    </body>
+	<br class="clear" />
+	
+	<h3>Web Apps</h3>
+	
+	<hr class="break" />
+	
+	<div class="box">
+		<h4>Quote Generator</h4>
+		
+		<img src="app-screenshots/splurty.png" class="full-width" />
+		
+		<p>A database-powered quote generator with a mobile-first
+			design, using the Ruby on Rails framework, HTML, and CSS.
+			Uses Git and GitHub for version control, and launched
+			on Heroku.</p>
+	</div>
+	
+	<div class="box">
+		<h4>Yelp Clone</h4>
+		
+		<img src="app-screenshots/nomster.png" class="full-width" />
+		
+		<p>A Yelp clone that integrates with the Google Maps API
+	        and includes features like user comments, star ratings,
+	        image uploading, and user authentication.</p>
+	</div>
+	
+	<br class="clear" />
+	
+	<div class="box">
+		<h4>Two-Sided Market Place</h4>
+		
+		<img src="app-screenshots/flixter.png" class="full-width" />
+		
+		<p>A two-sided, video-streaming marketplace platform that
+	        features credit card payment capabilities, user role
+	        management, complex user interfaces, and advanced
+	        database relationships.</p>
+	</div>
+	
+	<div class="box">
+		<h4>Test Driven Development</h4>
+		
+		<img src="app-screenshots/grammable.png" class="full-width" />
+		
+		<p>An Instagram clone that was built using industry-standard, test-driven
+	        development following numerous red/green/refactor cycles.</p>
+	</div>
+	
+	<br class="clear" />
+	
+	<div class="box">
+		<h4>Single Page Todo Application</h4>
+		
+		<img src="app-screenshots/todoster.png" class="full-width" />
+		
+		<p>This single-page to-do application features a
+	        fluid user interface that– by using JavaScript–
+	        allows users to rapidly add dynamic content.</p>
+	</div>
+	
+	<div class="box">
+		<h4>Agile Team Project</h4>
+		
+		<img src="app-screenshots/chess.png" class="full-width" />
+		
+		<p>Worked on an Agile software development team building
+	        a chess application. Under the guidance of a senior software engineer,
+	        we had weekly Agile team meetings for code reviews, sprint planning,
+	        and feature assignments.</p>
+	</div>
+	
+	<br class="clear" />
+	
+	<h3>Skills &amp; Tools</h3>
+	
+	<hr class="break" />
+	
+	<p class="skill-and-tools">Jeremy has developed proficiency and expertise
+	      in the following programming languages and
+	      comfort with the following tools.</p>
+	
+	<div class="icons">
+		<img src="skills-and-tools/github.png" class="icon" />
+		
+		<img src="skills-and-tools/rubocop.png" class="icon" />
+		
+		<img src="skills-and-tools/trello.png" class="icon" />
+		
+		<img src="skills-and-tools/slack.png" class="icon" />
+		
+		<img src="skills-and-tools/codeship.png" class="icon" />
+		
+		<br class="clear" />
+		
+		<img src="skills-and-tools/skills.png" class="icon" />
+	</div>
+	
+</body>
 </html>
