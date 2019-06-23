@@ -2,6 +2,16 @@
     <head>
         <link rel="stylesheet" type="text/css" href="style.css">
         <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+		
+		<link
+		    rel="stylesheet"
+		    href="prism-xonokai.css"
+		    type="text/css"
+		    media="screen"
+		  />
+		
+		  <script type="text/javascript" src="prism.js"></script>
+		  <script type="text/javascript" src="prism.ruby.js"></script>
     </head>
 
     <body>
@@ -22,7 +32,7 @@
             </div>
         </div>
 		<h3>Code Snippets</h3>
-		<hr class="yellow" />
+		<hr class="break" />
 		<div class="box">
 			<h4>Temperature Conversion</h4>
 			<p>
@@ -32,11 +42,37 @@
 			</p>
 		</div>
 		<div class="box">
-			Right Side
+<pre><code class="language-ruby">def convert_celsius_to_fahrenheit cels
+    cels * 1.8 + 32
+end
+
+puts &quot;Enter a temperature in Celcius:&quot;
+to_convert = gets.chomp.to_f
+
+puts 'The temperature is #{convert_celsius_to_fahrenheit(to_convert)}℉.'</code></pre>
 		</div>
 		<br class="clear" />
 		<div class="box">
-			Left Side
+<pre><code class="language-ruby">puts &quot;Enter a number:&quot;
+num = gets.chomp.to_i
+
+def get_ordinal number
+    ones_place = number &gt; 9 ? number % 10 : number
+
+    if number == 11 || number == 12 || number == 13 || ones_place == 0 || ones_place &gt; 3
+        ordinal = &quot;th&quot;
+    elsif ones_place == 1
+        ordinal = &quot;st&quot;
+    elsif ones_place == 2
+        ordinal = &quot;nd&quot;
+    elsif ones_place == 3
+        ordinal = &quot;rd&quot;
+    end
+    
+    return ordinal
+end
+
+puts &quot;The ordinal version of that number is #{num}#{get_ordinal(num)}.&quot;</code></pre>
 		</div>
 		<div class="box">
 			<h4>Ordinal Challenge</h4>
@@ -57,8 +93,100 @@
 			</p>
 		</div>
 		<div class="box">
-			Right Side
+<pre><code class="language-ruby">puts &quot;How many turns of FooBar should we play?&quot;
+turns = gets.chomp.to_i
+
+def foobar turns
+    current_turn = 1
+    output = []
+    
+    turns.times do
+        phrase = &quot;&quot;
+        if current_turn % 3 == 0
+            phrase &lt;&lt; &quot;Foo&quot;
+        end
+
+        if current_turn % 5 == 0
+            phrase &lt;&lt; &quot;Bar&quot;
+        end
+
+        if phrase != &quot;&quot;
+            output &lt;&lt; phrase
+        end
+
+        if current_turn % 3 != 0 &amp;&amp; current_turn % 5 != 0
+            output &lt;&lt; current_turn
+        end
+
+        current_turn += 1
+    end
+    return output
+end
+
+puts foobar(turns).inspect</code></pre>
 		</div>
 		<br class="clear" />
+		<h3>Web Apps</h3>
+		<hr class="break" />
+		<div class="box">
+			<h4>Quote Generator</h4>
+			<img src="splurty.png" class="full-width" />
+			<p>
+				A database-powered quote generator with a mobile-first
+				design, using the Ruby on Rails framework, HTML, and CSS.
+				Uses Git and GitHub for version control, and launched
+				on Heroku.
+			</p>
+		</div>
+		<div class="box">
+			<h4>Yelp Clone</h4>
+			<img src="nomster.png" class="full-width" />
+			<p>
+		        A Yelp clone that integrates with the Google Maps API
+		        and includes features like user comments, star ratings,
+		        image uploading, and user authentication.
+			</p>
+	    </div>
+	    <br class="clear" />
+	
+	    <div class="box">
+			<h4>Two-Sided Market Place</h4>
+			<img src="flixter.png" class="full-width" />
+			<p>
+		        A two-sided, video-streaming marketplace platform that
+		        features credit card payment capabilities, user role
+		        management, complex user interfaces, and advanced
+		        database relationships.
+			</p>
+	    </div>
+	    <div class="box">
+			<h4>Test Driven Development</h4>
+			<img src="grammable.png" class="full-width" />
+			<p>
+		        An Instagram clone that was built using industry-standard, test-driven
+		        development following numerous red/green/refactor cycles.
+			</p>
+	    </div>
+	    <br class="clear" />
+	    <div class="box">
+			<h4>Single Page Todo Application</h4>
+			<img src="todoster.png" class="full-width" />
+			<p>
+		        This single-page to-do application features a
+		        fluid user interface that– by using JavaScript–
+		        allows users to rapidly add dynamic content.
+			</p>
+	    </div>
+	    <div class="box">
+			<h4>Agile Team Project</h4>
+			<img src="chess.png" class="full-width" />
+			<p>
+		        Worked on an Agile software development team building
+		        a chess application. Under the guidance of a senior software engineer,
+		        we had weekly Agile team meetings for code reviews, sprint planning,
+		        and feature assignments.
+			</p>
+	    </div>
+	    <br class="clear" />
     </body>
 </html>
