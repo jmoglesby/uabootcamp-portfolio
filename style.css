@@ -30,8 +30,17 @@ h4 {
 	font-size: 24px;
 }
 
+small {
+	width: 100%;
+	text-align: center;
+	color: rgb(95, 95, 95);
+	font-style: italic;
+	font-weight: 200;
+}
+
 pre {
 	box-shadow: 0px 3px 5px #444;
+	max-height: 440px;
 }
 
 img {
@@ -41,18 +50,19 @@ img {
 
 .navbar {
 	width: 100%;
-	background-color: #2020208a;
+	background-color: #202020b9;
+	box-shadow: 0px 2px 3px #202020b9;
 	display: flex;
 	align-items: center;
-	/*background-color: #2020205b; */
 	position: fixed;
+	z-index: 500;
 }
 
 .nav-item {
 	font-size: 12px;
 	font-weight: bold;
-	width: 100px;
-	margin-top: 30px;
+	margin-top: 8px;
+	margin-bottom: 6px;
 	padding: 8px 0;
 	text-align: center;
 	margin-left: auto;
@@ -68,7 +78,8 @@ img {
 
 .bio {
 	color: white;
-	font-size: 14px;
+	font-size: 15px;
+	font-weight: 200;
 	margin-top: 35px;
 }
 
@@ -78,6 +89,7 @@ img {
 	border-style: solid;
 	border-color: hsla(0, 0%, 0%, 0.40);
 	margin-top: 40px;
+	box-shadow: none;
 }
 
 .about-container {
@@ -111,6 +123,10 @@ img {
 	border-radius: 15px;
 }
 
+.section-header {
+	padding-top: 70px;
+}
+
 .break {
 	border: 0; 
 	height: 1px; 
@@ -125,7 +141,7 @@ img {
 	float: left;
 	width: 42.5%;
 	margin-left: 5%;
-	margin-top: 80px;
+	margin-top: 50px;
 }
 
 .clear {
