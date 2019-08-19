@@ -2,15 +2,16 @@
 <head>
 	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
 	<link rel="stylesheet" type="text/css" href="style.css">
-	<link href="https://fonts.googleapis.com/css?family=Raleway:200,200i,400,400i&display=swap" rel="stylesheet">
-	<link
-    rel="stylesheet"
-    href="prism/prism-xonokai.css"
-    type="text/css"
-    media="screen" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:200,200i,400,400i&display=swap">
+	<link rel="stylesheet" href="prism/prism-xonokai.css" type="text/css" media="screen" />
 	
 	<script type="text/javascript" src="prism/prism.js"></script>
 	<script type="text/javascript" src="prism/prism.ruby.js"></script>
+	<script
+		src="https://code.jquery.com/jquery-3.4.1.min.js"
+		integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+		crossorigin="anonymous"></script>
 	<title>Jeremy Oglesby</title>
 	<meta name="description" content="Jeremy Oglesby is a self-taught web developer experienced in ruby, rails, and react." />
 </head>
@@ -401,6 +402,21 @@ image_2.output_image</code></pre>
 			<img src="skills-and-tools/heroku.png" class="icon" />
 		</div>
 	</div>
+
+	<div class="resume-container">
+		<h3 class="section-header" id="expand-resume">
+			View My Resume
+			<i class="fa fa-chevron-circle-right" id="expand-icon"></i>
+		</h3>
+		<div id="resume" data-state="hidden">
+			<a href="oglesby_resume.pdf" target="_blank" rel="noopener noreferrer" class="resume-link">
+				<em>download a pdf copy...</em>
+			</a>
+			<br />
+			<br />
+			<iframe src="https://resume.creddle.io/embed/izdbc5595z2" width="850" height="1100" seamless></iframe>
+		</div>
+	</div>
 	
 	<div class="contact-me" id="hire-me">
 		<h3 class="contact-headline">Contact Me</h3>
@@ -409,8 +425,7 @@ image_2.output_image</code></pre>
 		
 		<p class="contact-info">
 			Currently entertaining new opportunities.
-			Please check out my <a class="resume-link" href="oglesby_resume.pdf" target="_blank">resume</a>
-			and get in touch via email:
+			Please check out my resume above, and get in touch via email:
 		</p>
 		
 		<p class="contact-email">
@@ -419,5 +434,25 @@ image_2.output_image</code></pre>
 			</a>
 		</p>
 	</div>
+
+	<script>
+		$(document).ready(function () {
+			console.log("hi");
+			$('#expand-resume').click(function () {
+				var resume = $('#resume')
+				if (resume.data('state') === 'hidden') {
+					resume.slideDown();
+					resume.data('state', 'expanded');
+					$('#expand-icon').toggleClass('fa-chevron-circle-right');
+					$('#expand-icon').toggleClass('fa-chevron-circle-down');
+				} else {
+					resume.slideUp();
+					resume.data('state', 'hidden');
+					$('#expand-icon').toggleClass('fa-chevron-circle-right');
+					$('#expand-icon').toggleClass('fa-chevron-circle-down');
+				}
+			});
+		});
+	</script>
 </body>
 </html>

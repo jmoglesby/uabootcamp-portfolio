@@ -193,6 +193,20 @@ img {
 }
 
 .resume-link {
-	color: white;
-	font-weight: bold;
+	font-weight: lighter;
+	text-decoration: none;
+}
+
+.resume-container {
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+#expand-resume:hover {
+	cursor: pointer;
+}
+
+#resume {
+	height: 1150px;
+	display: none;
 }
