@@ -204,6 +204,7 @@ img {
 
 #expand-resume:hover {
 	cursor: pointer;
+	text-shadow: 0px 0px 6px darkorchid;
 }
 
 #resume {
