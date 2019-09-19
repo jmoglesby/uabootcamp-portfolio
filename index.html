@@ -5,7 +5,7 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:200,200i,400,400i&display=swap">
 	<link rel="stylesheet" href="prism/prism-xonokai.css" type="text/css" media="screen" />
-	
+
 	<script type="text/javascript" src="prism/prism.js"></script>
 	<script type="text/javascript" src="prism/prism.ruby.js"></script>
 	<script
@@ -24,43 +24,43 @@
 		<div class="nav-item"><a href="#skills-and-tools" class="nav-link">Skills &amp; Tools</a></div>
 		<div class="hire-me nav-item"><a href="#hire-me" class="nav-link">*Hire Me*</a></div>
 	</div>
-	
+
 	<div class="about-container">
 		<div class="about">
 			<img src="me.jpg" class="me" />
-			
+
 			<div class="content">
 				<h1>Jeremy Oglesby</h1>
-				
+
 				<h2>SOFTWARE DEVELOPER</h2>
-				
+
 				<hr class="gray" />
-				
+
 				<p class="bio">
-					A self-taught software developer with 
-					experience in C#, .NET, Ruby on Rails, 
-					JavaScript, and React. Jeremy lives in Phoenix, 
+					A self-taught software developer with
+					experience in C#, .NET, Ruby on Rails,
+					JavaScript, and React. Jeremy lives in Phoenix,
 					Arizona with his wife and three children.
 				</p>
 			</div>
 		</div>
 	</div>
-	
+
 	<div class="body-content" id="code-samples">
 		<h3 class="section-header">Ruby Code Snippets</h3>
-		
+
 		<hr class="break" />
-		
+
 		<div class="box">
 			<h4>Temperature Converter</h4>
-			
+
 			<p>
 				This script will prompt the user for a temperature
 				in degrees Celsius and let the user know what the
 				corresponding temperature is in Fahrenheit.
 			</p>
 		</div>
-		
+
 		<div class="box">
 			<pre><code class="language-ruby">def convert_celsius_to_fahrenheit cels
 		cels * 1.8 + 32
@@ -71,9 +71,9 @@ to_convert = gets.chomp.to_f
 
 puts 'The temperature is #{convert_celsius_to_fahrenheit(to_convert)}℉.'</code></pre>
 		</div>
-		
+
 		<br class="clear" />
-		
+
 		<div class="box">
 			<pre><code class="language-ruby">puts &quot;Enter a number:&quot;
 num = gets.chomp.to_i
@@ -81,7 +81,7 @@ num = gets.chomp.to_i
 def get_ordinal number
 		ones_place = number &gt; 9 ? number % 10 : number
 
-		if number == 11 || number == 12 || number == 13 || ones_place == 0 || ones_place &gt; 3  
+		if number == 11 || number == 12 || number == 13 || ones_place == 0 || ones_place &gt; 3
 				ordinal = &quot;th&quot;
 		elsif ones_place == 1
 				ordinal = &quot;st&quot;
@@ -90,16 +90,16 @@ def get_ordinal number
 		elsif ones_place == 3
 				ordinal = &quot;rd&quot;
 		end
-		
+
 		return ordinal
 end
 
 puts &quot;The ordinal version of that number is #{num}#{get_ordinal(num)}.&quot;</code></pre>
 		</div>
-		
+
 		<div class="box">
 			<h4>Ordinal Converter</h4>
-			
+
 			<p>
 				This script will convert a plain number
 				to the ordinal of the number. So for example,
@@ -107,19 +107,19 @@ puts &quot;The ordinal version of that number is #{num}#{get_ordinal(num)}.&quot
 				the user enters 3, it will display 3rd, etc.
 			</p>
 		</div>
-		
+
 		<br class="clear" />
-		
+
 		<div class="box">
 			<h4>Foobar Algorithm</h4>
-			
+
 			<p>
 				This snippet is an adaptation of a classic technical
 				interview problem which displays sequences
 				of the Foobar pattern.
 			</p>
 		</div>
-		
+
 		<div class="box">
 			<pre><code class="language-ruby">puts &quot;How many turns of FooBar should we play?&quot;
 turns = gets.chomp.to_i
@@ -127,7 +127,7 @@ turns = gets.chomp.to_i
 def foobar turns
 		current_turn = 1
 		output = []
-		
+
 		turns.times do
 				phrase = &quot;&quot;
 				if current_turn % 3 == 0
@@ -163,13 +163,13 @@ puts foobar(turns).inspect</code></pre>
 		@height = rows.count
 		row_lengths = 0
 		first_row_length = 0
-		
+
 		rows.each_with_index do |row, index|
 			if index == 0
 				first_row_length = row.count
 			else
 				row_length = row.count
-				fail "All rows are not the same length!" unless first_row_length == row_length  
+				fail "All rows are not the same length!" unless first_row_length == row_length
 			end
 
 			row_lengths += index == 0 ? first_row_length : row_length
@@ -182,7 +182,7 @@ puts foobar(turns).inspect</code></pre>
 	def output_image
 		@rows.each { |row| puts row.join(" ") }
 	end
-	
+
 
 	def blur distance=1
 		fail "Distance supplied must be an integer!" unless distance.class == Integer
@@ -247,11 +247,11 @@ image_2.output_image</code></pre>
 
 		<div class="box">
 				<h4>Image Blur</h4>
-				
+
 				<p>
 					This program creates an class to simulate a pixilated
 					image, and implements an algorithm to simulate blurring
-					instances of an image by manipulating pixels based on 
+					instances of an image by manipulating pixels based on
 					Manhattan distance from a focal point.
 				</p>
 			</div>
@@ -261,14 +261,14 @@ image_2.output_image</code></pre>
 
 	<div class="box">
 		<h4>Linked Lists - Reverse Iteratively</h4>
-		
+
 		<p>
-			This snippet is an implementation of the linked list data-type in Ruby. 
+			This snippet is an implementation of the linked list data-type in Ruby.
 			Here, I demonstrate use of a stack for iteratively reversing the order
 			of items in a Linked List.
 		</p>
 	</div>
-	
+
 	<div class="box">
 		<pre><code class="language-ruby">class LinkedListNode
 	attr_accessor :value, :next_node
@@ -346,7 +346,7 @@ print_values(revlist)</code></pre>
 	</div>
 
 	<br class="clear" />
-	
+
 	<div class="box">
 		<pre><code class="language-ruby">class LinkedListNode
 	attr_accessor :value, :next_node
@@ -385,7 +385,7 @@ def infinite_list? head
 end
 
 def t_and_h_race tortoise, hare
-	
+
 	tortoise = tortoise.next_node
 	if hare.next_node
 		hare = hare.next_node.next_node
@@ -430,7 +430,7 @@ puts "node4 is infinite? #{infinite_list?(node4)}\n\n"</code></pre>
 
 	<div class="box">
 			<h4>Linked Lists - Reverse Recursively</h4>
-			
+
 			<p>
 				And here I implement a method for reversing a Linked List
 				in a recursive manner, rather than iteratively. I also wrote a
@@ -439,21 +439,21 @@ puts "node4 is infinite? #{infinite_list?(node4)}\n\n"</code></pre>
 			</p>
 		</div>
 </div>
-	
+
 	<br class="clear" />
-	
+
 	<div class="body-content" id="web-apps">
 		<h3 class="section-header">Web Apps</h3>
-		
+
 		<hr class="break" />
-		
+
 		<div class="box">
 			<h4>Splurty</h4>
-			
+
 			<a href='https://splurty-jeremy-oglesby.herokuapp.com' target="_blank">
 				<img src="app-screenshots/splurty.png" class="full-width" />
 			</a>
-			
+
 			<p>
 				A database-powered quote generator with a mobile-first
 				design, using the Ruby on Rails framework, HTML, and CSS.
@@ -461,30 +461,30 @@ puts "node4 is infinite? #{infinite_list?(node4)}\n\n"</code></pre>
 				on Heroku.
 			</p>
 		</div>
-		
+
 		<div class="box">
 			<h4>Nomster</h4>
-			
+
 			<a href='https://nomster-jeremy-oglesby.herokuapp.com/' target="_blank">
 				<img src="app-screenshots/nomster.png" class="full-width" />
 			</a>
-			
+
 			<p>
 				A Yelp clone that integrates with the Google Maps API
 				and includes features like user comments, star ratings,
 				image uploading, and user authentication.
 			</p>
 		</div>
-		
+
 		<br class="clear" />
 
 		<div class="box">
 			<h4>Flixter</h4>
-			
+
 			<a href='https://flixter-jeremy-oglesby.herokuapp.com/' target="_blank">
 				<img src="app-screenshots/flixter.png" class="full-width" />
 			</a>
-			
+
 			<p>
 				An app that emulates an online video learning platform. Integrates
 				video uploads with AWS content management, and credit card payment
@@ -494,11 +494,11 @@ puts "node4 is infinite? #{infinite_list?(node4)}\n\n"</code></pre>
 
 		<div class="box">
 			<h4>React Developer Story</h4>
-			
+
 			<a href='http://jeremy.oglesby.life/' target="_blank">
 				<img src="app-screenshots/react.png" class="full-width" />
 			</a>
-			
+
 			<p>
 				A simple React.js app that highlights some of the things
 				I have been learning and building as a developer - a sort of
@@ -508,93 +508,90 @@ puts "node4 is infinite? #{infinite_list?(node4)}\n\n"</code></pre>
 		</div>
 
 		<br class="clear" />
-		
+
 		<div class="box">
 			<h4>Equipment Database</h4>
-			
+
 			<img src="app-screenshots/vegomatic.png" class="full-width" />
-			
+
 			<p><small>no longer viewable</small></p>
 			<p>
 				An equipment database application built in Ruby on Rails with
-				sprinklings of JQuery. Featured tiered user access and ruby 
-				scopes to allow complex search queries and filtering, and 
+				sprinklings of JQuery. Featured tiered user access and ruby
+				scopes to allow complex search queries and filtering, and
 				was used in production by a department of 15 people.
 			</p>
 		</div>
-		
+
 		<br class="clear" />
-		
-		<!-- <div class="box">
-			<h4>Two-Sided Market Place</h4>
-			
-			<img src="app-screenshots/flixter.png" class="full-width" />
-			
-			<p>A two-sided, video-streaming marketplace platform that
-						features credit card payment capabilities, user role
-						management, complex user interfaces, and advanced
-						database relationships.</p>
-		</div>
-		
+
 		<div class="box">
-			<h4>Test Driven Development</h4>
-			
+			<h4>Grammable - a Test-Driven App</h4>
+
 			<img src="app-screenshots/grammable.png" class="full-width" />
-			
-			<p>An Instagram clone that was built using industry-standard, test-driven
-						development following numerous red/green/refactor cycles.</p>
+
+			<p>
+				A spacious, soothing Instagram-like Rails app that was built using industry-standard,
+				test-driven development following numerous red/green/refactor cycles. RSpec was
+				used as the testing framework.
+			</p>
 		</div>
-		
+
 		<br class="clear" />
-		
+
 		<div class="box">
-			<h4>Single Page Todo Application</h4>
-			
-			<img src="app-screenshots/todoster.png" class="full-width" />
-			
-			<p>This single-page to-do application features a
-						fluid user interface that– by using JavaScript–
-						allows users to rapidly add dynamic content.</p>
+			<h4>TewDew - a Single Page App</h4>
+
+			<img src="app-screenshots/tewdew.png" class="full-width" />
+
+			<p>
+				This single-page to-do application features a fluid user interface that
+				makes all HTTP requests via JavaScript to allow a seamless user experience.
+			</p>
 		</div>
-		
+
+		<br class="clear" />
+
+		<!--
+
 		<div class="box">
 			<h4>Agile Team Project</h4>
-			
+
 			<img src="app-screenshots/chess.png" class="full-width" />
-			
+
 			<p>Worked on an Agile software development team building
 						a chess application. Under the guidance of a senior software engineer,
 						we had weekly Agile team meetings for code reviews, sprint planning,
 						and feature assignments.</p>
 		</div>
 	</div>
-	
+
 	<br class="clear" /> -->
-	
+
 	<div class="body-content" id="skills-and-tools">
 		<h3 class="section-header">Skills &amp; Tools</h3>
-		
+
 		<hr class="break" />
-		
+
 		<p class="skill-and-tools">
 			Jeremy has developed proficiency and expertise
 			in the following programming languages and
 			comfort with the following tools.
 		</p>
-		
+
 		<div class="icons">
 			<img src="skills-and-tools/skills.png" class="icon" />
-			
+
 			<br class="clear" />
-			
+
 			<img src="skills-and-tools/github.png" class="icon" />
-			
+
 			<img src="skills-and-tools/rubocop.png" class="icon" />
-			
+
 			<img src="skills-and-tools/trello.png" class="icon" />
-			
+
 			<img src="skills-and-tools/slack.png" class="icon" />
-			
+
 			<img src="skills-and-tools/codeship.png" class="icon" />
 
 			<img src="skills-and-tools/heroku.png" class="icon" />
@@ -615,17 +612,17 @@ puts "node4 is infinite? #{infinite_list?(node4)}\n\n"</code></pre>
 			<iframe src="https://resume.creddle.io/embed/izdbc5595z2" width="850" height="1100" seamless></iframe>
 		</div>
 	</div>
-	
+
 	<div class="contact-me" id="hire-me">
 		<h3 class="contact-headline">Contact Me</h3>
-		
+
 		<hr class="break" />
-		
+
 		<p class="contact-info">
 			Currently entertaining new opportunities.
 			Please check out my resume above, and get in touch via email:
 		</p>
-		
+
 		<p class="contact-email">
 			<a href="mailto:iaminaband@gmail.com" class="contact-link">
 				iaminaband@gmail.com
