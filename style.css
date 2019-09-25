@@ -130,6 +130,15 @@ img {
 .section-header {
 	padding-top: 120px;
 	margin-top: 0;
+	position: sticky;
+	position: -webkit-sticky;
+	top: -60px;
+	background-color: white;
+	z-index: 1;
+}
+
+.section-header > h3 {
+	margin-top: 0;
 }
 
 .break {
