@@ -4,7 +4,7 @@ body {
 }
 
 h1 {
-	color: #f5f5ffa8;
+	color: #f5f5ffe0;
 	font-size: 50px;
 	font-weight: normal;
 	margin-bottom: 0;
@@ -12,9 +12,9 @@ h1 {
 }
 
 h2 {
-	color: lightgray;
+	color: rgb(240, 240, 240);
 	font-size: 18px;
-	margin-top: 0;
+	margin-top: 2%;
 	margin-bottom: 0;
 }
 
@@ -22,7 +22,6 @@ h3 {
 	text-align: center;
 	font-size: 28px;
 	font-weight: normal;
-	margin-top: 60px;
 }
 
 h4 {
@@ -78,9 +77,9 @@ img {
 
 .bio {
 	color: white;
-	font-size: 15px;
+	font-size: 17px;
 	font-weight: 200;
-	margin-top: 35px;
+	margin-top: 25px;
 }
 
 .me {
@@ -93,11 +92,7 @@ img {
 }
 
 .about-container {
-	background: url(bg2.jpeg) center center no-repeat fixed;
-	background-size: cover;
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
+	background: url(papyrus.png) fixed;
 	padding-top: 60px;
 	height:  500px;
 	opacity: 1;
@@ -117,19 +112,29 @@ img {
 	width: 230px;
 }
 
+.github > a {
+	text-decoration: none;
+	color: darkorchid;
+}
+
 .content {
 	background-color: hsla(0, 0%, 0%, 0.46);
 	padding: 0px 15px 10px 15px;
 	border-radius: 15px;
 }
 
+#code-samples {
+	box-shadow: 0px -15px 12px #f0f0f0ad; /*inset 0px 15px 12px #f0f0f0ad;*/
+}
+
 .section-header {
-	padding-top: 70px;
+	padding-top: 120px;
+	margin-top: 0;
 }
 
 .break {
-	border: 0; 
-	height: 1px; 
+	border: 0;
+	height: 1px;
 	width: 75%;
 	background-image: -webkit-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
 	background-image: -moz-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
@@ -179,17 +184,21 @@ img {
 	color: white;
 	font-size: 13px;
 	margin-top: 30px;
+	margin-left: auto;
+	margin-right: auto;
 	text-align: center;
+	max-width: 80%;
 }
 
 .contact-email {
+	color: white;
+	font-size: 13px;
 	text-align: center;
 }
 
 .contact-link {
 	color: white;
-	font-weight: bold;
-	font-size: 13px;
+	font-weight: 600;
 }
 
 .resume-link {

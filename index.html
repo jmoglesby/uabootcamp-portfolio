@@ -3,7 +3,7 @@
 	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:200,200i,400,400i&display=swap">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:200,200i,400,400i,600,600i&display=swap">
 	<link rel="stylesheet" href="prism/prism-xonokai.css" type="text/css" media="screen" />
 
 	<script type="text/javascript" src="prism/prism.js"></script>
@@ -36,6 +36,10 @@
 
 				<hr class="gray" />
 
+				<span class="github">
+					<a href="https://github.com/jmoglesby" target="_blank" rel="noopener noreferrer"><i class="fa fa-github" aria-hidden="true"></i> See my work!</a>
+				</span>
+
 				<p class="bio">
 					A self-taught software developer with
 					experience in C#, .NET, Ruby on Rails,
@@ -50,65 +54,6 @@
 		<h3 class="section-header">Ruby Code Snippets</h3>
 
 		<hr class="break" />
-
-		<div class="box">
-			<h4>Temperature Converter</h4>
-
-			<p>
-				This script will prompt the user for a temperature
-				in degrees Celsius and let the user know what the
-				corresponding temperature is in Fahrenheit.
-			</p>
-		</div>
-
-		<div class="box">
-			<pre><code class="language-ruby">def convert_celsius_to_fahrenheit cels
-		cels * 1.8 + 32
-end
-
-puts &quot;Enter a temperature in Celcius:&quot;
-to_convert = gets.chomp.to_f
-
-puts 'The temperature is #{convert_celsius_to_fahrenheit(to_convert)}℉.'</code></pre>
-		</div>
-
-		<br class="clear" />
-
-		<div class="box">
-			<pre><code class="language-ruby">puts &quot;Enter a number:&quot;
-num = gets.chomp.to_i
-
-def get_ordinal number
-		ones_place = number &gt; 9 ? number % 10 : number
-
-		if number == 11 || number == 12 || number == 13 || ones_place == 0 || ones_place &gt; 3
-				ordinal = &quot;th&quot;
-		elsif ones_place == 1
-				ordinal = &quot;st&quot;
-		elsif ones_place == 2
-				ordinal = &quot;nd&quot;
-		elsif ones_place == 3
-				ordinal = &quot;rd&quot;
-		end
-
-		return ordinal
-end
-
-puts &quot;The ordinal version of that number is #{num}#{get_ordinal(num)}.&quot;</code></pre>
-		</div>
-
-		<div class="box">
-			<h4>Ordinal Converter</h4>
-
-			<p>
-				This script will convert a plain number
-				to the ordinal of the number. So for example,
-				if the user enters 2, it will display 2nd, if
-				the user enters 3, it will display 3rd, etc.
-			</p>
-		</div>
-
-		<br class="clear" />
 
 		<div class="box">
 			<h4>Foobar Algorithm</h4>
@@ -622,14 +567,21 @@ puts "node4 is infinite? #{infinite_list?(node4)}\n\n"</code></pre>
 
 		<p class="contact-info">
 			Currently entertaining new opportunities.
-			Please check out my resume above, and get in touch via email:
+			Please check out my resume above.
+			<p class="contact-email">
+				Check out my github portfolio:
+				<a href="https://github.com/jmoglesby" class="contact-link">
+					<i class="fa fa-github" aria-hidden="true"></i> jmoglesby
+				</a>
+			</p>
+			<p class="contact-email">
+				Get in touch via email:
+				<a href="mailto:iaminaband@gmail.com" class="contact-link">
+					iaminaband@gmail.com
+				</a>
+			</p>
 		</p>
 
-		<p class="contact-email">
-			<a href="mailto:iaminaband@gmail.com" class="contact-link">
-				iaminaband@gmail.com
-			</a>
-		</p>
 	</div>
 
 	<script>
