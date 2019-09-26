@@ -1,14 +1,21 @@
 body {
+	background: url(papyrus.png) fixed;
 	font-family: 'Raleway', sans-serif;
 	margin: 0;
 }
 
+.middle	{
+	background-color: white;
+	box-shadow: 0px 0px 20px 4px #4d4d4d83;
+}
+
 h1 {
-	color: #f5f5ffe0;
+	color: #fafafae0;
 	font-size: 50px;
 	font-weight: normal;
+	margin-top: 0;
 	margin-bottom: 0;
-	text-shadow: black 3px 3px 3px;
+	text-shadow: rgba(0, 0, 0, 0.767) 3px 3px 4px;
 }
 
 h2 {
@@ -88,13 +95,12 @@ img {
 	border-style: solid;
 	border-color: hsla(0, 0%, 0%, 0.40);
 	margin-top: 40px;
-	box-shadow: none;
+	box-shadow: 3px 4px 12px #444;
 }
 
 .about-container {
-	background: url(papyrus.png) fixed;
 	padding-top: 60px;
-	height:  500px;
+	height:  520px;
 	opacity: 1;
 }
 
@@ -121,10 +127,8 @@ img {
 	background-color: hsla(0, 0%, 0%, 0.46);
 	padding: 0px 15px 10px 15px;
 	border-radius: 15px;
-}
-
-#code-samples {
-	box-shadow: 0px -15px 12px #f0f0f0ad; /*inset 0px 15px 12px #f0f0f0ad;*/
+	box-shadow: 2px 3px 12px #444;
+	margin-top: 30px;
 }
 
 .section-header {
@@ -184,13 +188,25 @@ img {
 }
 
 .contact-me {
-	height: 350px;
-	background-color: #202020;
-	padding-top: 30px;
+	height: 300px;
+}
+
+.contact-box {
+	width: 600px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 5%;
+	margin-bottom: auto;
+	text-align: center;
+	background-color: hsla(0, 0%, 0%, 0.46);
+	padding: 10px 15px 10px 15px;
+	border-radius: 15px;
+	box-shadow: 2px 3px 12px #444;
 }
 
 .contact-headline {
 	color: white;
+	margin-top: 0;
 }
 
 .contact-info {
@@ -221,7 +237,7 @@ img {
 
 .resume-container {
 	text-align: center;
-	margin-bottom: 20px;
+	padding-bottom: 20px;
 }
 
 #expand-resume:hover {
@@ -232,4 +248,12 @@ img {
 #resume {
 	height: 1150px;
 	display: none;
+}
+
+.cr {
+	display: block;
+	padding-bottom: 12px;
+	font-style: normal;
+	color: #8c8b8b;
+	z-index: -1;
 }

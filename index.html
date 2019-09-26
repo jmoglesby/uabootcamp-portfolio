@@ -42,1075 +42,1079 @@
 
 				<p class="bio">
 					A self-taught software developer with
-					experience in C#, .NET, Ruby on Rails,
-					JavaScript, and React. Jeremy lives in Phoenix,
-					Arizona with his wife and three children.
+					experience in Ruby on Rails, JavaScript, React, C#, and .NET.
+					Jeremy lives in Phoenix, AZ with his wife and three children.
 				</p>
 			</div>
 		</div>
 	</div>
 
-	<div class="body-content" id="code-samples">
-		<div class="section-header">
-			<h3>Ruby Code Snippets</h3>
-			<hr class="break" />
-		</div>
+	<div class="middle">
+		<div class="body-content" id="code-samples">
+			<div class="section-header">
+				<h3>Ruby Code Snippets</h3>
+				<hr class="break" />
+			</div>
 
-		<div class="box">
-			<h4>Foobar Algorithm</h4>
+			<div class="box">
+				<h4>Foobar Algorithm</h4>
 
-			<p>
-				This snippet is an adaptation of a classic technical
-				interview problem which displays sequences
-				of the Foobar pattern.
-			</p>
-		</div>
+				<p>
+					This snippet is an adaptation of a classic technical
+					interview problem which displays sequences
+					of the Foobar pattern.
+				</p>
+			</div>
 
-		<div class="box">
-			<pre><code class="language-ruby">puts &quot;How many turns of FooBar should we play?&quot;
-turns = gets.chomp.to_i
+			<div class="box">
+				<pre><code class="language-ruby">puts &quot;How many turns of FooBar should we play?&quot;
+	turns = gets.chomp.to_i
 
-def foobar turns
-		current_turn = 1
-		output = []
+	def foobar turns
+			current_turn = 1
+			output = []
 
-		turns.times do
-				phrase = &quot;&quot;
-				if current_turn % 3 == 0
-						phrase &lt;&lt; &quot;Foo&quot;
-				end
+			turns.times do
+					phrase = &quot;&quot;
+					if current_turn % 3 == 0
+							phrase &lt;&lt; &quot;Foo&quot;
+					end
 
-				if current_turn % 5 == 0
-						phrase &lt;&lt; &quot;Bar&quot;
-				end
+					if current_turn % 5 == 0
+							phrase &lt;&lt; &quot;Bar&quot;
+					end
 
-				if phrase != &quot;&quot;
-						output &lt;&lt; phrase
-				end
+					if phrase != &quot;&quot;
+							output &lt;&lt; phrase
+					end
 
-				if current_turn % 3 != 0 &amp;&amp; current_turn % 5 != 0
-						output &lt;&lt; current_turn
-				end
+					if current_turn % 3 != 0 &amp;&amp; current_turn % 5 != 0
+							output &lt;&lt; current_turn
+					end
 
-				current_turn += 1
-		end
-		return output
-end
-
-puts foobar(turns).inspect</code></pre>
-		</div>
-
-		<div class="box">
-			<pre><code class="language-ruby">class Image
-	attr_accessor :rows, :height, :length
-
-	def initialize rows
-		@rows = rows
-		@height = rows.count
-		row_lengths = 0
-		first_row_length = 0
-
-		rows.each_with_index do |row, index|
-			if index == 0
-				first_row_length = row.count
-			else
-				row_length = row.count
-				fail "All rows are not the same length!" unless first_row_length == row_length
+					current_turn += 1
 			end
-
-			row_lengths += index == 0 ? first_row_length : row_length
-		end
-
-		@length = row_lengths / rows.count
+			return output
 	end
 
+	puts foobar(turns).inspect</code></pre>
+			</div>
 
-	def output_image
-		@rows.each { |row| puts row.join(" ") }
-	end
+			<div class="box">
+				<pre><code class="language-ruby">class Image
+		attr_accessor :rows, :height, :length
 
+		def initialize rows
+			@rows = rows
+			@height = rows.count
+			row_lengths = 0
+			first_row_length = 0
 
-	def blur distance=1
-		fail "Distance supplied must be an integer!" unless distance.class == Integer
-
-		ones = []
-		@rows.each_with_index do |row, i|
-			row.each_with_index do |column, j|
-				if column == 1
-					ones << [i, j]
+			rows.each_with_index do |row, index|
+				if index == 0
+					first_row_length = row.count
+				else
+					row_length = row.count
+					fail "All rows are not the same length!" unless first_row_length == row_length
 				end
+
+				row_lengths += index == 0 ? first_row_length : row_length
 			end
+
+			@length = row_lengths / rows.count
 		end
 
-		ones.each do |one_pixel|
+
+		def output_image
+			@rows.each { |row| puts row.join(" ") }
+		end
+
+
+		def blur distance=1
+			fail "Distance supplied must be an integer!" unless distance.class == Integer
+
+			ones = []
 			@rows.each_with_index do |row, i|
 				row.each_with_index do |column, j|
-					if ((i - one_pixel[0]).abs + (j - one_pixel[1]).abs) <= distance
-						@rows[i][j] = 1 if @rows[i][j]
+					if column == 1
+						ones << [i, j]
+					end
+				end
+			end
+
+			ones.each do |one_pixel|
+				@rows.each_with_index do |row, i|
+					row.each_with_index do |column, j|
+						if ((i - one_pixel[0]).abs + (j - one_pixel[1]).abs) <= distance
+							@rows[i][j] = 1 if @rows[i][j]
+						end
 					end
 				end
 			end
 		end
+
 	end
 
-end
 
+	# EXECUTE >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-# EXECUTE >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+	image = Image.new([
+		[1, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+		[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+		[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+		[0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
+		[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+		[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+		[0, 0, 0, 0, 0, 0, 0, 0, 1, 0]
+	])
 
-image = Image.new([
-	[1, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-	[0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
-	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-	[0, 0, 0, 0, 0, 0, 0, 0, 1, 0]
-])
+	puts "Image:"
+	image.output_image
+	image.blur(3)
+	puts "\n\nBlurred Image:"
+	image.output_image
 
-puts "Image:"
-image.output_image
-image.blur(3)
-puts "\n\nBlurred Image:"
-image.output_image
+	image_2 = Image.new([
+		[1, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+		[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+		[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+		[0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
+		[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+		[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+		[0, 0, 0, 0, 0, 0, 0, 0, 1, 0]
+	])
 
-image_2 = Image.new([
-	[1, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-	[0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
-	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-	[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-	[0, 0, 0, 0, 0, 0, 0, 0, 1, 0]
-])
+	puts "\n\n\nImage 2:"
+	image_2.output_image
+	image_2.blur
+	puts "\n\nBlurred Image 2:"
+	image_2.output_image</code></pre>
+			</div>
 
-puts "\n\n\nImage 2:"
-image_2.output_image
-image_2.blur
-puts "\n\nBlurred Image 2:"
-image_2.output_image</code></pre>
-		</div>
+			<div class="box">
+					<h4>
+						Image Blur
+						<a href="https://github.com/jmoglesby/uabootcamp-challenges/tree/master/image_blur" target="_blank" rel="noopener noreferrer">
+							<i class="fa fa-github" aria-hidden="true"></i>
+						</a>
+					</h4>
 
-		<div class="box">
+					<p>
+						This program creates an class to simulate a pixilated
+						image, and implements an algorithm to simulate blurring
+						instances of an image by manipulating pixels based on
+						Manhattan distance from a focal point.
+					</p>
+			</div>
+
+			<br class="clear" />
+
+			<div class="box">
 				<h4>
-					Image Blur
-					<a href="https://github.com/jmoglesby/uabootcamp-challenges/tree/master/image_blur" target="_blank" rel="noopener noreferrer">
+					Linked Lists - Reverse Iteratively
+					<a href="https://github.com/jmoglesby/uabootcamp-challenges/tree/master/linked_list" target="_blank" rel="noopener noreferrer">
 						<i class="fa fa-github" aria-hidden="true"></i>
 					</a>
 				</h4>
 
 				<p>
-					This program creates an class to simulate a pixilated
-					image, and implements an algorithm to simulate blurring
-					instances of an image by manipulating pixels based on
-					Manhattan distance from a focal point.
+					This snippet is an implementation of the linked list data-type in Ruby.
+					Here, I demonstrate use of a stack for iteratively reversing the order
+					of items in a Linked List.
 				</p>
-		</div>
+			</div>
 
-		<br class="clear" />
+			<div class="box">
+				<pre><code class="language-ruby">class LinkedListNode
+		attr_accessor :value, :next_node
 
-		<div class="box">
-			<h4>
-				Linked Lists - Reverse Iteratively
-				<a href="https://github.com/jmoglesby/uabootcamp-challenges/tree/master/linked_list" target="_blank" rel="noopener noreferrer">
-					<i class="fa fa-github" aria-hidden="true"></i>
-				</a>
-			</h4>
-
-			<p>
-				This snippet is an implementation of the linked list data-type in Ruby.
-				Here, I demonstrate use of a stack for iteratively reversing the order
-				of items in a Linked List.
-			</p>
-		</div>
-
-		<div class="box">
-			<pre><code class="language-ruby">class LinkedListNode
-	attr_accessor :value, :next_node
-
-	def initialize value, next_node=nil
-		@value = value
-		@next_node = next_node
-	end
-end
-
-class Stack
-	attr_reader :data
-
-	def intialize
-		@data = nil
-	end
-
-	def push value
-		if @data == nil
-			@data = LinkedListNode.new(value)
-		else
-			new_data = LinkedListNode.new(value, @data)
-			@data = new_data
+		def initialize value, next_node=nil
+			@value = value
+			@next_node = next_node
 		end
 	end
 
-	def pop
-		if @data
-			top_value = @data.value
-			@data = @data.next_node
-			return top_value
-		else
-			return nil
+	class Stack
+		attr_reader :data
+
+		def intialize
+			@data = nil
 		end
-	end
-end
 
-def print_values list_node
-	if list_node
-		print "#{list_node.value} --> "
-		print_values list_node.next_node
-	else
-		print "nil\n"
-		return
-	end
-end
-
-def reverse_list(list)
-	reversed_list = Stack.new
-
-	while list
-		reversed_list.push(list.value)
-		list = list.next_node
-	end
-
-	return reversed_list.data
-end
-
-# EXECUTE >>>>>>>>>>>>>>>>>>>>>>>>>>>>
-
-stack = Stack.new
-
-stack.push 2
-stack.push 4
-stack.push 6
-stack.push 8
-
-print_values(stack.data)
-
-puts "---------------------------"
-
-revlist = reverse_list(stack.data)
-
-print_values(revlist)</code></pre>
-		</div>
-
-		<br class="clear" />
-
-		<div class="box">
-			<pre><code class="language-ruby">class LinkedListNode
-	attr_accessor :value, :next_node
-
-	def initialize value, next_node=nil
-		@value = value
-		@next_node = next_node
-	end
-end
-
-def print_values list_node
-	if list_node
-		print "#{list_node.value} --> "
-		print_values list_node.next_node
-	else
-		print "nil\n"
-		return
-	end
-end
-
-def reverse_list head, previous=nil
-	new_head = head.next_node
-	head.next_node = previous
-	if new_head
-		reverse_list new_head, head
-	else
-		return head
-	end
-end
-
-def infinite_list? head
-	tortoise = head
-	hare = head
-
-	return t_and_h_race tortoise, hare
-end
-
-def t_and_h_race tortoise, hare
-
-	tortoise = tortoise.next_node
-	if hare.next_node
-		hare = hare.next_node.next_node
-	else
-		hare = nil
-	end
-
-	if tortoise == nil || hare == nil
-		return false
-	elsif tortoise == hare
-		return true
-	else
-		t_and_h_race tortoise, hare
-	end
-
-end
-
-# EXECUTE >>>>>>>>>>>>>>>>>>>>>>>>>>>>
-
-node1 = LinkedListNode.new(2)
-node2 = LinkedListNode.new(4, node1)
-node3 = LinkedListNode.new(6, node2)
-node4 = LinkedListNode.new(8, node3)
-
-puts "\n**\nReverse Recursively:"
-print_values(node4)
-puts "---------------------------"
-new_head = reverse_list(node4)
-print_values(new_head)
-
-inf_node1 = LinkedListNode.new(2)
-inf_node2 = LinkedListNode.new(4, inf_node1)
-inf_node3 = LinkedListNode.new(6, inf_node2)
-inf_node4 = LinkedListNode.new(8, inf_node3)
-inf_node1.next_node = inf_node3
-
-puts "\n**\nDetect Infinite List:"
-puts "inf_node4 is infinte? #{infinite_list?(inf_node4)}"
-puts "--------------------------"
-puts "node4 is infinite? #{infinite_list?(node4)}\n\n"</code></pre>
-		</div>
-
-		<div class="box">
-			<h4>
-				Linked Lists - Reverse Recursively
-				<a href="https://github.com/jmoglesby/uabootcamp-challenges/tree/master/linked_list" target="_blank" rel="noopener noreferrer">
-					<i class="fa fa-github" aria-hidden="true"></i>
-				</a>
-			</h4>
-
-			<p>
-				And here I implement a method for reversing a Linked List
-				in a recursive manner, rather than iteratively. I also wrote a
-				Ruby adaptation of the "Tortoise-and-Hare" algorithm to detect
-				an infinitely looped Linked List.
-			</p>
-		</div>
-
-		<br class="clear" />
-
-		<div class="box">
-			<h4>
-				Fibonacci Sequence
-				<a href="https://github.com/jmoglesby/uabootcamp-challenges/tree/master/fibonacci" target="_blank" rel="noopener noreferrer">
-					<i class="fa fa-github" aria-hidden="true"></i>
-				</a>
-			</h4>
-
-			<p>
-				This module presents 4 different algorithms for producing a Fibonacci
-				sequence. Two are iterative, and two are recursive. I was proud to have
-				come up with the idea, in both iterative and recursive methods, to hold
-				on to only the last number passed, rather than building a massive array,
-				or performing double recursion, to speed up the algorithm when only the
-				final value of the sequence is desired as output. My 'hold' methods
-				benchmark much faster than the traditional methods (tests and benchmarks
-				are viewable in the GitHub repo).
-			</p>
-		</div>
-
-		<div class="box">
-			<pre><code class="language-ruby">module Fibonacci
-	def self.iterative_fib(number)
-		res = [0]
-		i = 1
-		first_run = true
-
-		number.times do
-			if first_run
-				res[i] = 1
-				first_run = false
+		def push value
+			if @data == nil
+				@data = LinkedListNode.new(value)
 			else
-				res[i] = res[i - 1] + res[i - 2]
-			end
-
-			i += 1
-		end
-
-		res.last
-	end
-
-	def self.semi_iterative_fib(number)
-		res = 0
-		prev = 0
-		first_run = true
-
-		number.times do
-			if first_run
-				res += 1
-				first_run = false
-			else
-				hold = res
-				res += prev
-				prev = hold
+				new_data = LinkedListNode.new(value, @data)
+				@data = new_data
 			end
 		end
 
-		res
-	end
-
-	def self.recursive_fib1(num)
-		num <= 1 ? num : recursive_fib1(num - 1) + recursive_fib1(num - 2)
-	end
-
-	def self.recursive_fib2(number)
-		fib(number, 1, 0)
-	end
-
-	def self.fib(times, num, previous)
-		if times.zero?
-			previous
-		else
-			hold = num
-			num += previous
-			previous = hold
-			times -= 1
-			fib(times, num, previous)
+		def pop
+			if @data
+				top_value = @data.value
+				@data = @data.next_node
+				return top_value
+			else
+				return nil
+			end
 		end
 	end
-end</code></pre>
-		</div>
 
-		<br class="clear" />
-
-		<div class="box">
-			<pre><code class="language-ruby">module TreeTraversal
-	def self.depth_first(payload, origin)
-		traversal_hash = { payload: payload, node: origin, path: [], checked: [] }
-		dive(traversal_hash)
+	def print_values list_node
+		if list_node
+			print "#{list_node.value} --> "
+			print_values list_node.next_node
+		else
+			print "nil\n"
+			return
+		end
 	end
 
-	def self.dive(hash)
-		res = 'Payload not found.'
+	def reverse_list(list)
+		reversed_list = Stack.new
 
-		unless hash[:node].nil?
-			if hash[:payload] == hash[:node].payload
-				res = hash[:node]
+		while list
+			reversed_list.push(list.value)
+			list = list.next_node
+		end
 
-			elsif hash[:node].children.count.zero? || all_children_checked(hash)
-				# climb tree
-				hash[:checked] << hash[:node]
-				if hash[:path].count.zero?
-					return res
+		return reversed_list.data
+	end
+
+	# EXECUTE >>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+	stack = Stack.new
+
+	stack.push 2
+	stack.push 4
+	stack.push 6
+	stack.push 8
+
+	print_values(stack.data)
+
+	puts "---------------------------"
+
+	revlist = reverse_list(stack.data)
+
+	print_values(revlist)</code></pre>
+			</div>
+
+			<br class="clear" />
+
+			<div class="box">
+				<pre><code class="language-ruby">class LinkedListNode
+		attr_accessor :value, :next_node
+
+		def initialize value, next_node=nil
+			@value = value
+			@next_node = next_node
+		end
+	end
+
+	def print_values list_node
+		if list_node
+			print "#{list_node.value} --> "
+			print_values list_node.next_node
+		else
+			print "nil\n"
+			return
+		end
+	end
+
+	def reverse_list head, previous=nil
+		new_head = head.next_node
+		head.next_node = previous
+		if new_head
+			reverse_list new_head, head
+		else
+			return head
+		end
+	end
+
+	def infinite_list? head
+		tortoise = head
+		hare = head
+
+		return t_and_h_race tortoise, hare
+	end
+
+	def t_and_h_race tortoise, hare
+
+		tortoise = tortoise.next_node
+		if hare.next_node
+			hare = hare.next_node.next_node
+		else
+			hare = nil
+		end
+
+		if tortoise == nil || hare == nil
+			return false
+		elsif tortoise == hare
+			return true
+		else
+			t_and_h_race tortoise, hare
+		end
+
+	end
+
+	# EXECUTE >>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+	node1 = LinkedListNode.new(2)
+	node2 = LinkedListNode.new(4, node1)
+	node3 = LinkedListNode.new(6, node2)
+	node4 = LinkedListNode.new(8, node3)
+
+	puts "\n**\nReverse Recursively:"
+	print_values(node4)
+	puts "---------------------------"
+	new_head = reverse_list(node4)
+	print_values(new_head)
+
+	inf_node1 = LinkedListNode.new(2)
+	inf_node2 = LinkedListNode.new(4, inf_node1)
+	inf_node3 = LinkedListNode.new(6, inf_node2)
+	inf_node4 = LinkedListNode.new(8, inf_node3)
+	inf_node1.next_node = inf_node3
+
+	puts "\n**\nDetect Infinite List:"
+	puts "inf_node4 is infinte? #{infinite_list?(inf_node4)}"
+	puts "--------------------------"
+	puts "node4 is infinite? #{infinite_list?(node4)}\n\n"</code></pre>
+			</div>
+
+			<div class="box">
+				<h4>
+					Linked Lists - Reverse Recursively
+					<a href="https://github.com/jmoglesby/uabootcamp-challenges/tree/master/linked_list" target="_blank" rel="noopener noreferrer">
+						<i class="fa fa-github" aria-hidden="true"></i>
+					</a>
+				</h4>
+
+				<p>
+					And here I implement a method for reversing a Linked List
+					in a recursive manner, rather than iteratively. I also wrote a
+					Ruby adaptation of the "Tortoise-and-Hare" algorithm to detect
+					an infinitely looped Linked List.
+				</p>
+			</div>
+
+			<br class="clear" />
+
+			<div class="box">
+				<h4>
+					Fibonacci Sequence
+					<a href="https://github.com/jmoglesby/uabootcamp-challenges/tree/master/fibonacci" target="_blank" rel="noopener noreferrer">
+						<i class="fa fa-github" aria-hidden="true"></i>
+					</a>
+				</h4>
+
+				<p>
+					This module presents 4 different algorithms for producing a Fibonacci
+					sequence. Two are iterative, and two are recursive. I was proud to have
+					come up with the idea, in both iterative and recursive methods, to hold
+					on to only the last number passed, rather than building a massive array,
+					or performing double recursion, to speed up the algorithm when only the
+					final value of the sequence is desired as output. My 'hold' methods
+					benchmark much faster than the traditional methods (tests and benchmarks
+					are viewable in the GitHub repo).
+				</p>
+			</div>
+
+			<div class="box">
+				<pre><code class="language-ruby">module Fibonacci
+		def self.iterative_fib(number)
+			res = [0]
+			i = 1
+			first_run = true
+
+			number.times do
+				if first_run
+					res[i] = 1
+					first_run = false
 				else
-					hash[:node] = hash[:path].pop
-					res = dive(hash)
+					res[i] = res[i - 1] + res[i - 2]
 				end
 
+				i += 1
+			end
+
+			res.last
+		end
+
+		def self.semi_iterative_fib(number)
+			res = 0
+			prev = 0
+			first_run = true
+
+			number.times do
+				if first_run
+					res += 1
+					first_run = false
+				else
+					hold = res
+					res += prev
+					prev = hold
+				end
+			end
+
+			res
+		end
+
+		def self.recursive_fib1(num)
+			num <= 1 ? num : recursive_fib1(num - 1) + recursive_fib1(num - 2)
+		end
+
+		def self.recursive_fib2(number)
+			fib(number, 1, 0)
+		end
+
+		def self.fib(times, num, previous)
+			if times.zero?
+				previous
 			else
-				hash[:checked] << hash[:node]
-				hash[:path] << hash[:node]
-				i = 0
-				while i < hash[:node].children.count do
-					if hash[:checked].include?(hash[:node].children[i])
-						i += 1
+				hold = num
+				num += previous
+				previous = hold
+				times -= 1
+				fib(times, num, previous)
+			end
+		end
+	end</code></pre>
+			</div>
+
+			<br class="clear" />
+
+			<div class="box">
+				<pre><code class="language-ruby">module TreeTraversal
+		def self.depth_first(payload, origin)
+			traversal_hash = { payload: payload, node: origin, path: [], checked: [] }
+			dive(traversal_hash)
+		end
+
+		def self.dive(hash)
+			res = 'Payload not found.'
+
+			unless hash[:node].nil?
+				if hash[:payload] == hash[:node].payload
+					res = hash[:node]
+
+				elsif hash[:node].children.count.zero? || all_children_checked(hash)
+					# climb tree
+					hash[:checked] << hash[:node]
+					if hash[:path].count.zero?
+						return res
 					else
-						hash[:node] = hash[:node].children[i]
+						hash[:node] = hash[:path].pop
 						res = dive(hash)
 					end
-				end
-			end
-		end
 
-		return res
-	end
-
-	def self.breadth_first(payload, origin)
-		traversal_hash = { payload: payload, checking: [origin], to_check: [] }
-		shallow_dive(traversal_hash)
-	end
-
-	def self.shallow_dive(hash)
-		res = 'Payload not found.'
-
-		unless hash[:checking].count.zero?
-			hash[:checking].each do |node|
-				res = hash[:payload] == node.payload ? node : nil
-			end
-
-			unless res
-				hash[:checking].each do |node|
-					node.children.each do |child|
-						hash[:to_check] << child
+				else
+					hash[:checked] << hash[:node]
+					hash[:path] << hash[:node]
+					i = 0
+					while i < hash[:node].children.count do
+						if hash[:checked].include?(hash[:node].children[i])
+							i += 1
+						else
+							hash[:node] = hash[:node].children[i]
+							res = dive(hash)
+						end
 					end
 				end
-				hash[:checking] = hash[:to_check]
-				hash[:to_check] = []
-
-				res = shallow_dive(hash)
 			end
+
+			return res
 		end
 
-		return res
-	end
+		def self.breadth_first(payload, origin)
+			traversal_hash = { payload: payload, checking: [origin], to_check: [] }
+			shallow_dive(traversal_hash)
+		end
 
-	def self.all_children_checked(hash)
-		res = true
-		hash[:node].children.each do |child|
-			res = hash[:checked].include?(child)
-			if res == false
-				return res
+		def self.shallow_dive(hash)
+			res = 'Payload not found.'
+
+			unless hash[:checking].count.zero?
+				hash[:checking].each do |node|
+					res = hash[:payload] == node.payload ? node : nil
+				end
+
+				unless res
+					hash[:checking].each do |node|
+						node.children.each do |child|
+							hash[:to_check] << child
+						end
+					end
+					hash[:checking] = hash[:to_check]
+					hash[:to_check] = []
+
+					res = shallow_dive(hash)
+				end
 			end
-		end
-		return res
-	end
-end</code></pre>
-		</div>
 
-		<div class="box">
-			<h4>
-				Tree Traversal
-				<a href="https://github.com/jmoglesby/uabootcamp-challenges/tree/master/tree_traversal" target="_blank" rel="noopener noreferrer">
-					<i class="fa fa-github" aria-hidden="true"></i>
-				</a>
-			</h4>
-
-			<p>
-				Here I've provided both depth-first and breadth-first methods
-				for retrieval of a value from a tree structure. I worked hard to
-				produce algorithms in response to this challenge without looking
-				at solutions presented online, and came up with the idea to build
-				a hash object to pass recursively into 'dive' methods for diving
-				down the tree, and then climbing back up when needed. While my methods
-				may not be as efficient as some classical solutions, I am proud that
-				this module represents my raw and unaided programming in response to
-				a challenge. (Tests viewable in GitHub repo)
-			</p>
-		</div>
-
-		<br class="clear" />
-
-		<div class="box">
-			<h4>
-				Binary Tree Sort
-				<a href="https://github.com/jmoglesby/uabootcamp-challenges/tree/master/btree_sort" target="_blank" rel="noopener noreferrer">
-					<i class="fa fa-github" aria-hidden="true"></i>
-				</a>
-			</h4>
-
-			<p>
-				This is an algorithm for sorting an array using the binary tree sort
-				technique. As with the Tree Traversal module above, this snippet represents
-				my raw and unaided response, as a novice developer, to the challenge of
-				using the binary tree data structure as a sorting tool. (Tests and dependencies
-				viewable in GitHub repo)
-			</p>
-		</div>
-
-		<div class="box">
-			<pre><code class="language-ruby">require 'binary_tree'
-
-module BTreeSort
-	def self.sort(array)
-		res = []
-		btree_trunk = BinaryTree.new(array.slice!(0))
-
-		array.each do |item|
-			add_to_btree(item, btree_trunk)
+			return res
 		end
 
-		unpack_hash = { node: btree_trunk, res: res, path: [], pushed: [] }
-		unpack_btree(unpack_hash)
+		def self.all_children_checked(hash)
+			res = true
+			hash[:node].children.each do |child|
+				res = hash[:checked].include?(child)
+				if res == false
+					return res
+				end
+			end
+			return res
+		end
+	end</code></pre>
+			</div>
 
-		return res
-	end
+			<div class="box">
+				<h4>
+					Tree Traversal
+					<a href="https://github.com/jmoglesby/uabootcamp-challenges/tree/master/tree_traversal" target="_blank" rel="noopener noreferrer">
+						<i class="fa fa-github" aria-hidden="true"></i>
+					</a>
+				</h4>
 
-	def self.add_to_btree(item, node)
-		res = nil
+				<p>
+					Here I've provided both depth-first and breadth-first methods
+					for retrieval of a value from a tree structure. I worked hard to
+					produce algorithms in response to this challenge without looking
+					at solutions presented online, and came up with the idea to build
+					a hash object to pass recursively into 'dive' methods for diving
+					down the tree, and then climbing back up when needed. While my methods
+					may not be as efficient as some classical solutions, I am proud that
+					this module represents my raw and unaided programming in response to
+					a challenge. (Tests viewable in GitHub repo)
+				</p>
+			</div>
 
-		# compare item to payloads in depth-first manner
-		if item > node.payload
-			if node.right
-				res = add_to_btree(item, node.right)
+			<br class="clear" />
+
+			<div class="box">
+				<h4>
+					Binary Tree Sort
+					<a href="https://github.com/jmoglesby/uabootcamp-challenges/tree/master/btree_sort" target="_blank" rel="noopener noreferrer">
+						<i class="fa fa-github" aria-hidden="true"></i>
+					</a>
+				</h4>
+
+				<p>
+					This is an algorithm for sorting an array using the binary tree sort
+					technique. As with the Tree Traversal module above, this snippet represents
+					my raw and unaided response, as a novice developer, to the challenge of
+					using the binary tree data structure as a sorting tool. (Tests and dependencies
+					viewable in GitHub repo)
+				</p>
+			</div>
+
+			<div class="box">
+				<pre><code class="language-ruby">require 'binary_tree'
+
+	module BTreeSort
+		def self.sort(array)
+			res = []
+			btree_trunk = BinaryTree.new(array.slice!(0))
+
+			array.each do |item|
+				add_to_btree(item, btree_trunk)
+			end
+
+			unpack_hash = { node: btree_trunk, res: res, path: [], pushed: [] }
+			unpack_btree(unpack_hash)
+
+			return res
+		end
+
+		def self.add_to_btree(item, node)
+			res = nil
+
+			# compare item to payloads in depth-first manner
+			if item > node.payload
+				if node.right
+					res = add_to_btree(item, node.right)
+				else
+					res = BinaryTree.new(item)
+					node.right = res
+				end
 			else
-				res = BinaryTree.new(item)
-				node.right = res
-			end
-		else
-			if node.left
-				res = add_to_btree(item, node.left)
-			else
-				res = BinaryTree.new(item)
-				node.left = res
+				if node.left
+					res = add_to_btree(item, node.left)
+				else
+					res = BinaryTree.new(item)
+					node.left = res
+				end
 			end
 		end
-	end
 
-	def self.unpack_btree(hash)
-		unless hash[:node].nil?
-			if hash[:node].right.nil? && hash[:node].left.nil?
-				hash[:res] << hash[:node].payload
-				hash[:pushed] << hash[:node]
-				hash[:node] = hash[:path].pop
-				return unpack_btree(hash)
-			end
+		def self.unpack_btree(hash)
+			unless hash[:node].nil?
+				if hash[:node].right.nil? && hash[:node].left.nil?
+					hash[:res] << hash[:node].payload
+					hash[:pushed] << hash[:node]
+					hash[:node] = hash[:path].pop
+					return unpack_btree(hash)
+				end
 
-			if hash[:node].left # node has left
-				if hash[:pushed].include?(hash[:node].left) # node has pushed-left
-					if hash[:node].right # node has pushed-left / right
-						if hash[:pushed].include?(hash[:node].right) # node has pushed-left / pushed-right
+				if hash[:node].left # node has left
+					if hash[:pushed].include?(hash[:node].left) # node has pushed-left
+						if hash[:node].right # node has pushed-left / right
+							if hash[:pushed].include?(hash[:node].right) # node has pushed-left / pushed-right
+								hash[:node] = hash[:path].pop
+								return unpack_btree(hash)
+
+							else # node has pushed-left / unpushed-right
+								hash[:res] << hash[:node].payload
+								hash[:pushed] << hash[:node]
+								hash[:node] = hash[:node].right
+								return unpack_btree(hash)
+
+							end
+						else # node has pushed-left / no-right
+							hash[:res] << hash[:node].payload
+							hash[:pushed] << hash[:node]
 							hash[:node] = hash[:path].pop
 							return unpack_btree(hash)
 
-						else # node has pushed-left / unpushed-right
-							hash[:res] << hash[:node].payload
-							hash[:pushed] << hash[:node]
-							hash[:node] = hash[:node].right
-							return unpack_btree(hash)
-
 						end
-					else # node has pushed-left / no-right
-						hash[:res] << hash[:node].payload
-						hash[:pushed] << hash[:node]
-						hash[:node] = hash[:path].pop
+
+					else # node has unpushed-left
+						hash[:path] << hash[:node]
+						hash[:node] = hash[:node].left
 						return unpack_btree(hash)
 
 					end
 
-				else # node has unpushed-left
-					hash[:path] << hash[:node]
-					hash[:node] = hash[:node].left
-					return unpack_btree(hash)
+				else # node has no-left / right
+					if hash[:pushed].include?(hash[:node].right) # node has no-left / pushed-right
+						hash[:node] = hash[:path].pop
+						return unpack_btree(hash)
 
-				end
+					else # node has no-left / unpushed-right
+						hash[:res] << hash[:node].payload
+						hash[:pushed] << hash[:node]
+						hash[:node] = hash[:node].right
+						return unpack_btree(hash)
 
-			else # node has no-left / right
-				if hash[:pushed].include?(hash[:node].right) # node has no-left / pushed-right
-					hash[:node] = hash[:path].pop
-					return unpack_btree(hash)
-
-				else # node has no-left / unpushed-right
-					hash[:res] << hash[:node].payload
-					hash[:pushed] << hash[:node]
-					hash[:node] = hash[:node].right
-					return unpack_btree(hash)
-
+					end
 				end
 			end
 		end
-	end
-end</code></pre>
-		</div>
-
-		<br class="clear" />
-
-		<div class="box">
-			<pre><code class="language-ruby">require 'rails_helper'
-
-RSpec.describe GramsController, type: :controller do
-	describe 'grams index action' do
-		it 'should successfully show the page' do
-			get :index
-			expect(response).to have_http_status(:success)
-		end
-	end
-
-	describe 'grams new action' do
-		it 'should require users to be logged in' do
-			get :new
-			expect(response).to redirect_to new_user_session_path
-		end
-
-		it 'should successfully show the new form' do
-			user = FactoryBot.create(:user)
-			sign_in user
-
-			get :new
-			expect(response).to have_http_status(:success)
-		end
-	end
-
-	describe 'grams create action' do
-		it 'should require users to be logged in' do
-			post :create, params: { gram: { message: 'Hello!' } }
-			expect(response).to redirect_to new_user_session_path
-		end
-
-		it 'should successfully create a gram in the database' do
-			user = FactoryBot.create(:user)
-			sign_in user
-
-			post :create, params: {
-				gram: {
-					message: 'Hello!',
-					picture: fixture_file_upload('/picture.png', 'image/png')
-				}
-			}
-			expect(response).to redirect_to root_path
-
-			gram = Gram.last
-			expect(gram.message).to eq('Hello!')
-			expect(gram.user).to eq(user)
-		end
-
-		it 'should properly deal with validation errors' do
-			user = FactoryBot.create(:user)
-			sign_in user
-
-			gram_count = Gram.count
-			post :create, params: { gram: { message: '' } }
-			expect(response).to have_http_status(:unprocessable_entity)
-			expect(gram_count).to eq Gram.count
-		end
-	end
-
-	describe 'grams show action' do
-		it 'should successfully show the page if the gram is found' do
-			gram = FactoryBot.create(:gram)
-			get :show, params: { id: gram.id }
-			expect(response).to have_http_status(:success)
-		end
-
-		it 'should return a 404 error if the gram is not found' do
-			get :show, params: { id: 'TACOCAT' }
-			expect(response).to have_http_status(:not_found)
-		end
-	end
-
-	describe 'grams edit action' do
-		it 'should successfully show the edit form if the gram is found' do
-			gram = FactoryBot.create(:gram)
-			sign_in gram.user
-			get :edit, params: { id: gram.id }
-			expect(response).to have_http_status(:success)
-		end
-
-		it 'should return a 404 message if the gram is not found' do
-			user = FactoryBot.create(:user)
-			sign_in user
-			get :edit, params: { id: 'TACOCAT' }
-			expect(response).to have_http_status(:not_found)
-		end
-
-		it 'should not let unathenticated users edit a gram' do
-			gram = FactoryBot.create(:gram)
-			get :edit, params: { id: gram.id }
-			expect(response).to redirect_to new_user_session_path
-		end
-
-		it 'should not let users who did not create a gram edit it' do
-			gram = FactoryBot.create(:gram)
-			user = FactoryBot.create(:user)
-			sign_in user
-
-			get :edit, params: { id: gram.id }
-			expect(response).to have_http_status(:forbidden)
-		end
-	end
-
-	describe 'grams update action' do
-		it 'should allow users to successfully update grams' do
-			gram = FactoryBot.create(:gram, message: 'Initial Value')
-			sign_in gram.user
-			patch :update, params: { id: gram.id, gram: { message: 'Changed Value' } }
-			expect(response).to redirect_to root_path
-			gram.reload
-			expect(gram.message).to eq 'Changed Value'
-		end
-
-		it 'should return a 404 error if the gram cannot be found' do
-			user = FactoryBot.create(:user)
-			sign_in user
-			patch :update, params: { id: 'TACOCAT', gram: { message: 'Changed Value' } }
-			expect(response).to have_http_status(:not_found)
-		end
-
-		it 'should render the edit form with an http status of unprocessible_entity if validation fails' do
-			gram = FactoryBot.create(:gram, message: 'Initial Value')
-			sign_in gram.user
-			patch :update, params: { id: gram.id, gram: { message: '' } }
-			expect(response).to have_http_status(:unprocessable_entity)
-			gram.reload
-			expect(gram.message).to eq 'Initial Value'
-		end
-
-		it 'should not let unathenticated users update a gram' do
-			gram = FactoryBot.create(:gram, message: 'Initial Value')
-			patch :update, params: { id: gram.id, gram: { message: 'Changed Value' } }
-			expect(response).to redirect_to new_user_session_path
-		end
-
-		it 'should not let users who did not create a gram update it' do
-			gram = FactoryBot.create(:gram, message: 'Initial Value')
-			user = FactoryBot.create(:user)
-			sign_in user
-
-			patch :update, params: { id: gram.id, gram: { message: 'Changed Value' } }
-			expect(response).to have_http_status(:forbidden)
-		end
-	end
-
-	describe 'grams destroy action' do
-		it 'should allow a user to destroy a gram' do
-			gram = FactoryBot.create(:gram)
-			sign_in gram.user
-			delete :destroy, params: { id: gram.id }
-			expect(response).to redirect_to root_path
-			gram = Gram.find_by_id(gram.id)
-			expect(gram).to eq nil
-		end
-
-		it 'should return a 404 error if the gram to be destroyed cannot be found' do
-			user = FactoryBot.create(:user)
-			sign_in user
-			delete :destroy, params: { id: 'TACOCAT' }
-			expect(response).to have_http_status(:not_found)
-		end
-
-		it 'should not let unathenticated users destroy a gram' do
-			gram = FactoryBot.create(:gram)
-			delete :destroy, params: { id: gram.id }
-			expect(response).to redirect_to new_user_session_path
-		end
-
-		it 'should not let users who did not create a gram destroy it' do
-			gram = FactoryBot.create(:gram)
-			user = FactoryBot.create(:user)
-			sign_in user
-
-			delete :destroy, params: { id: gram.id }
-			expect(response).to have_http_status(:forbidden)
-		end
-	end
-end</code></pre>
-		</div>
-
-		<div class="box">
-			<h4>
-				RSpec Testing
-				<a href="https://github.com/jmoglesby/grammable" target="_blank" rel="noopener noreferrer">
-					<i class="fa fa-github" aria-hidden="true"></i>
-				</a>
-			</h4>
-
-			<p>
-				I know how to write tests! At least in RSpec...
-				Here are the controller tests I wrote for the Grammable app
-				(viewable below), which I developed in a test-driven manner.
-				The GitHub link for this one goes to the top level of the project
-				repo, with tests and the <code>FactoryBot</code> model viewable in
-				the 'spec' directory.
-			</p>
-		</div>
-	</div>
-
-	<br class="clear" />
-
-	<div class="body-content" id="web-apps">
-		<div class="section-header">
-			<h3>Web Apps</h3>
-			<hr class="break" />
-		</div>
-
-		<div class="box">
-			<h4>Splurty</h4>
-
-			<a href='https://splurty-jeremy-oglesby.herokuapp.com' target="_blank">
-				<img src="app-screenshots/splurty.png" class="full-width" />
-			</a>
-
-			<p>
-				A database-powered quote generator with a mobile-first
-				design, using the Ruby on Rails framework, HTML, and CSS.
-				Uses Git and GitHub for version control, and launched
-				on Heroku.
-			</p>
-		</div>
-
-		<div class="box">
-			<h4>Nomster</h4>
-
-			<a href='https://nomster-jeremy-oglesby.herokuapp.com/' target="_blank">
-				<img src="app-screenshots/nomster.png" class="full-width" />
-			</a>
-
-			<p>
-				A Yelp clone that integrates with the Google Maps API
-				and includes features like user comments, star ratings,
-				image uploading, and user authentication.
-			</p>
-		</div>
-
-		<br class="clear" />
-
-		<div class="box">
-			<h4>Flixter</h4>
-
-			<a href='https://flixter-jeremy-oglesby.herokuapp.com/' target="_blank">
-				<img src="app-screenshots/flixter.png" class="full-width" />
-			</a>
-
-			<p>
-				An app that emulates an online video learning platform. Integrates
-				video uploads with AWS content management, and credit card payment
-				via the Stripe API.
-			</p>
-		</div>
-
-		<div class="box">
-			<h4>React Developer Story</h4>
-
-			<a href='http://jeremy.oglesby.life/' target="_blank">
-				<img src="app-screenshots/react.png" class="full-width" />
-			</a>
-
-			<p>
-				A simple React.js app that highlights some of the things
-				I have been learning and building as a developer - a sort of
-				adjunct to this portfolio page. It demonstrates basic knowledge
-				of the React.js framework and building a componentized UI.
-			</p>
-		</div>
-
-		<br class="clear" />
-
-		<div class="box">
-			<h4>Equipment Database</h4>
-
-			<img src="app-screenshots/vegomatic.png" class="full-width" />
-
-			<p><small>no longer viewable</small></p>
-			<p>
-				An equipment database application built in Ruby on Rails with
-				sprinklings of JQuery. Featured tiered user access and ruby
-				scopes to allow complex search queries and filtering, and
-				was used in production by a department of 15 people.
-			</p>
-		</div>
-
-		<div class="box">
-			<h4>Grammable - a Test-Driven App</h4>
-
-			<a href="http://grammable-jeremy-oglesby.herokuapp.com/" target="_blank" rel="noopener noreferrer">
-				<img src="app-screenshots/grammable.png" class="full-width" />
-			</a>
-
-			<p>
-				A spacious, soothing Instagram-like Rails app that was built using industry-standard,
-				test-driven development following numerous red/green/refactor cycles. RSpec was
-				used as the testing framework.
-			</p>
-		</div>
-
-		<br class="clear" />
-
-		<div class="box">
-			<h4>TewDew - a Single Page App</h4>
-
-			<a href="http://tewdew-jeremy-oglesby.herokuapp.com/" target="_blank" rel="noopener noreferrer">
-				<img src="app-screenshots/tewdew.png" class="full-width" />
-			</a>
-
-			<p>
-				This single-page to-do application features a fluid user interface that
-				makes all HTTP requests via JavaScript to allow a seamless user experience.
-			</p>
-		</div>
-
-		<!--
-		<br class="clear" />
-
-		<div class="box">
-			<h4>Agile Team Project</h4>
-
-			<img src="app-screenshots/chess.png" class="full-width" />
-
-			<p>Worked on an Agile software development team building
-						a chess application. Under the guidance of a senior software engineer,
-						we had weekly Agile team meetings for code reviews, sprint planning,
-						and feature assignments.</p>
-		</div>
-		-->
-	</div>
-
-	<br class="clear" />
-
-	<div class="body-content" id="skills-and-tools">
-		<div class="section-header">
-			<h3>Skills &amp; Tools</h3>
-			<hr class="break" />
-		</div>
-
-		<p class="skill-and-tools">
-			Jeremy has developed proficiency and expertise
-			in the following programming languages and
-			comfort with the following tools.
-		</p>
-
-		<div class="icons">
-			<img src="skills-and-tools/skills.png" class="icon" />
+	end</code></pre>
+			</div>
 
 			<br class="clear" />
 
-			<img src="skills-and-tools/github.png" class="icon" />
+			<div class="box">
+				<pre><code class="language-ruby">require 'rails_helper'
 
-			<img src="skills-and-tools/rubocop.png" class="icon" />
+	RSpec.describe GramsController, type: :controller do
+		describe 'grams index action' do
+			it 'should successfully show the page' do
+				get :index
+				expect(response).to have_http_status(:success)
+			end
+		end
 
-			<img src="skills-and-tools/trello.png" class="icon" />
+		describe 'grams new action' do
+			it 'should require users to be logged in' do
+				get :new
+				expect(response).to redirect_to new_user_session_path
+			end
 
-			<img src="skills-and-tools/slack.png" class="icon" />
+			it 'should successfully show the new form' do
+				user = FactoryBot.create(:user)
+				sign_in user
 
-			<img src="skills-and-tools/codeship.png" class="icon" />
+				get :new
+				expect(response).to have_http_status(:success)
+			end
+		end
 
-			<img src="skills-and-tools/heroku.png" class="icon" />
+		describe 'grams create action' do
+			it 'should require users to be logged in' do
+				post :create, params: { gram: { message: 'Hello!' } }
+				expect(response).to redirect_to new_user_session_path
+			end
+
+			it 'should successfully create a gram in the database' do
+				user = FactoryBot.create(:user)
+				sign_in user
+
+				post :create, params: {
+					gram: {
+						message: 'Hello!',
+						picture: fixture_file_upload('/picture.png', 'image/png')
+					}
+				}
+				expect(response).to redirect_to root_path
+
+				gram = Gram.last
+				expect(gram.message).to eq('Hello!')
+				expect(gram.user).to eq(user)
+			end
+
+			it 'should properly deal with validation errors' do
+				user = FactoryBot.create(:user)
+				sign_in user
+
+				gram_count = Gram.count
+				post :create, params: { gram: { message: '' } }
+				expect(response).to have_http_status(:unprocessable_entity)
+				expect(gram_count).to eq Gram.count
+			end
+		end
+
+		describe 'grams show action' do
+			it 'should successfully show the page if the gram is found' do
+				gram = FactoryBot.create(:gram)
+				get :show, params: { id: gram.id }
+				expect(response).to have_http_status(:success)
+			end
+
+			it 'should return a 404 error if the gram is not found' do
+				get :show, params: { id: 'TACOCAT' }
+				expect(response).to have_http_status(:not_found)
+			end
+		end
+
+		describe 'grams edit action' do
+			it 'should successfully show the edit form if the gram is found' do
+				gram = FactoryBot.create(:gram)
+				sign_in gram.user
+				get :edit, params: { id: gram.id }
+				expect(response).to have_http_status(:success)
+			end
+
+			it 'should return a 404 message if the gram is not found' do
+				user = FactoryBot.create(:user)
+				sign_in user
+				get :edit, params: { id: 'TACOCAT' }
+				expect(response).to have_http_status(:not_found)
+			end
+
+			it 'should not let unathenticated users edit a gram' do
+				gram = FactoryBot.create(:gram)
+				get :edit, params: { id: gram.id }
+				expect(response).to redirect_to new_user_session_path
+			end
+
+			it 'should not let users who did not create a gram edit it' do
+				gram = FactoryBot.create(:gram)
+				user = FactoryBot.create(:user)
+				sign_in user
+
+				get :edit, params: { id: gram.id }
+				expect(response).to have_http_status(:forbidden)
+			end
+		end
+
+		describe 'grams update action' do
+			it 'should allow users to successfully update grams' do
+				gram = FactoryBot.create(:gram, message: 'Initial Value')
+				sign_in gram.user
+				patch :update, params: { id: gram.id, gram: { message: 'Changed Value' } }
+				expect(response).to redirect_to root_path
+				gram.reload
+				expect(gram.message).to eq 'Changed Value'
+			end
+
+			it 'should return a 404 error if the gram cannot be found' do
+				user = FactoryBot.create(:user)
+				sign_in user
+				patch :update, params: { id: 'TACOCAT', gram: { message: 'Changed Value' } }
+				expect(response).to have_http_status(:not_found)
+			end
+
+			it 'should render the edit form with an http status of unprocessible_entity if validation fails' do
+				gram = FactoryBot.create(:gram, message: 'Initial Value')
+				sign_in gram.user
+				patch :update, params: { id: gram.id, gram: { message: '' } }
+				expect(response).to have_http_status(:unprocessable_entity)
+				gram.reload
+				expect(gram.message).to eq 'Initial Value'
+			end
+
+			it 'should not let unathenticated users update a gram' do
+				gram = FactoryBot.create(:gram, message: 'Initial Value')
+				patch :update, params: { id: gram.id, gram: { message: 'Changed Value' } }
+				expect(response).to redirect_to new_user_session_path
+			end
+
+			it 'should not let users who did not create a gram update it' do
+				gram = FactoryBot.create(:gram, message: 'Initial Value')
+				user = FactoryBot.create(:user)
+				sign_in user
+
+				patch :update, params: { id: gram.id, gram: { message: 'Changed Value' } }
+				expect(response).to have_http_status(:forbidden)
+			end
+		end
+
+		describe 'grams destroy action' do
+			it 'should allow a user to destroy a gram' do
+				gram = FactoryBot.create(:gram)
+				sign_in gram.user
+				delete :destroy, params: { id: gram.id }
+				expect(response).to redirect_to root_path
+				gram = Gram.find_by_id(gram.id)
+				expect(gram).to eq nil
+			end
+
+			it 'should return a 404 error if the gram to be destroyed cannot be found' do
+				user = FactoryBot.create(:user)
+				sign_in user
+				delete :destroy, params: { id: 'TACOCAT' }
+				expect(response).to have_http_status(:not_found)
+			end
+
+			it 'should not let unathenticated users destroy a gram' do
+				gram = FactoryBot.create(:gram)
+				delete :destroy, params: { id: gram.id }
+				expect(response).to redirect_to new_user_session_path
+			end
+
+			it 'should not let users who did not create a gram destroy it' do
+				gram = FactoryBot.create(:gram)
+				user = FactoryBot.create(:user)
+				sign_in user
+
+				delete :destroy, params: { id: gram.id }
+				expect(response).to have_http_status(:forbidden)
+			end
+		end
+	end</code></pre>
+			</div>
+
+			<div class="box">
+				<h4>
+					RSpec Testing
+					<a href="https://github.com/jmoglesby/grammable" target="_blank" rel="noopener noreferrer">
+						<i class="fa fa-github" aria-hidden="true"></i>
+					</a>
+				</h4>
+
+				<p>
+					I know how to write tests! At least in RSpec...
+					Here are the controller tests I wrote for the Grammable app
+					(viewable below), which I developed in a test-driven manner.
+					The GitHub link for this one goes to the top level of the project
+					repo, with tests and the <code>FactoryBot</code> model viewable in
+					the 'spec' directory.
+				</p>
+			</div>
 		</div>
-	</div>
 
-	<br class="clear" />
+		<br class="clear" />
 
-	<div class="resume-container">
-		<div class="section-header">
-			<h3 id="expand-resume">
-				View My Resume
-				<i class="fa fa-chevron-circle-right" id="expand-icon"></i>
-			</h3>
-			<hr class="break" />
+		<div class="body-content" id="web-apps">
+			<div class="section-header">
+				<h3>Web Apps</h3>
+				<hr class="break" />
+			</div>
+
+			<div class="box">
+				<h4>Splurty</h4>
+
+				<a href='https://splurty-jeremy-oglesby.herokuapp.com' target="_blank">
+					<img src="app-screenshots/splurty.png" class="full-width" />
+				</a>
+
+				<p>
+					A database-powered quote generator with a mobile-first
+					design, using the Ruby on Rails framework, HTML, and CSS.
+					Uses Git and GitHub for version control, and launched
+					on Heroku.
+				</p>
+			</div>
+
+			<div class="box">
+				<h4>Nomster</h4>
+
+				<a href='https://nomster-jeremy-oglesby.herokuapp.com/' target="_blank">
+					<img src="app-screenshots/nomster.png" class="full-width" />
+				</a>
+
+				<p>
+					A Yelp clone that integrates with the Google Maps API
+					and includes features like user comments, star ratings,
+					image uploading, and user authentication.
+				</p>
+			</div>
+
+			<br class="clear" />
+
+			<div class="box">
+				<h4>Flixter</h4>
+
+				<a href='https://flixter-jeremy-oglesby.herokuapp.com/' target="_blank">
+					<img src="app-screenshots/flixter.png" class="full-width" />
+				</a>
+
+				<p>
+					An app that emulates an online video learning platform. Integrates
+					video uploads with AWS content management, and credit card payment
+					via the Stripe API.
+				</p>
+			</div>
+
+			<div class="box">
+				<h4>React Developer Story</h4>
+
+				<a href='http://jeremy.oglesby.life/' target="_blank">
+					<img src="app-screenshots/react.png" class="full-width" />
+				</a>
+
+				<p>
+					A simple React.js app that highlights some of the things
+					I have been learning and building as a developer - a sort of
+					adjunct to this portfolio page. It demonstrates basic knowledge
+					of the React.js framework and building a componentized UI.
+				</p>
+			</div>
+
+			<br class="clear" />
+
+			<div class="box">
+				<h4>Equipment Database</h4>
+
+				<img src="app-screenshots/vegomatic.png" class="full-width" />
+
+				<p><small>no longer viewable</small></p>
+				<p>
+					An equipment database application built in Ruby on Rails with
+					sprinklings of JQuery. Featured tiered user access and ruby
+					scopes to allow complex search queries and filtering, and
+					was used in production by a department of 15 people.
+				</p>
+			</div>
+
+			<div class="box">
+				<h4>Grammable - a Test-Driven App</h4>
+
+				<a href="http://grammable-jeremy-oglesby.herokuapp.com/" target="_blank" rel="noopener noreferrer">
+					<img src="app-screenshots/grammable.png" class="full-width" />
+				</a>
+
+				<p>
+					A spacious, soothing Instagram-like Rails app that was built using industry-standard,
+					test-driven development following numerous red/green/refactor cycles. RSpec was
+					used as the testing framework.
+				</p>
+			</div>
+
+			<br class="clear" />
+
+			<div class="box">
+				<h4>TewDew - a Single Page App</h4>
+
+				<a href="http://tewdew-jeremy-oglesby.herokuapp.com/" target="_blank" rel="noopener noreferrer">
+					<img src="app-screenshots/tewdew.png" class="full-width" />
+				</a>
+
+				<p>
+					This single-page to-do application features a fluid user interface that
+					makes all HTTP requests via JavaScript to allow a seamless user experience.
+				</p>
+			</div>
+
+			<!--
+			<br class="clear" />
+
+			<div class="box">
+				<h4>Agile Team Project</h4>
+
+				<img src="app-screenshots/chess.png" class="full-width" />
+
+				<p>Worked on an Agile software development team building
+							a chess application. Under the guidance of a senior software engineer,
+							we had weekly Agile team meetings for code reviews, sprint planning,
+							and feature assignments.</p>
+			</div>
+			-->
 		</div>
-		<div id="resume" data-state="hidden">
-			<a href="oglesby_resume.pdf" target="_blank" rel="noopener noreferrer" class="resume-link">
-				<em>download a pdf copy...</em>
-			</a>
-			<br />
-			<br />
-			<iframe src="https://resume.creddle.io/embed/izdbc5595z2" width="850" height="1100" seamless></iframe>
+
+		<br class="clear" />
+
+		<div class="body-content" id="skills-and-tools">
+			<div class="section-header">
+				<h3>Skills &amp; Tools</h3>
+				<hr class="break" />
+			</div>
+
+			<p class="skill-and-tools">
+				Jeremy has developed proficiency and expertise
+				in the following programming languages and
+				comfort with the following tools.
+			</p>
+
+			<div class="icons">
+				<img src="skills-and-tools/skills.png" class="icon" />
+
+				<br class="clear" />
+
+				<img src="skills-and-tools/github.png" class="icon" />
+
+				<img src="skills-and-tools/rubocop.png" class="icon" />
+
+				<img src="skills-and-tools/trello.png" class="icon" />
+
+				<img src="skills-and-tools/slack.png" class="icon" />
+
+				<img src="skills-and-tools/codeship.png" class="icon" />
+
+				<img src="skills-and-tools/heroku.png" class="icon" />
+			</div>
+		</div>
+
+		<br class="clear" />
+
+		<div class="resume-container">
+			<div class="section-header">
+				<h3 id="expand-resume">
+					View My Resume
+					<i class="fa fa-chevron-circle-right" id="expand-icon"></i>
+				</h3>
+				<hr class="break" />
+			</div>
+			<div id="resume" data-state="hidden">
+				<a href="oglesby_resume.pdf" target="_blank" rel="noopener noreferrer" class="resume-link">
+					<em>download a pdf copy...</em>
+				</a>
+				<br />
+				<br />
+				<iframe src="https://resume.creddle.io/embed/izdbc5595z2" width="850" height="1100" seamless></iframe>
+			</div>
 		</div>
 	</div>
 
 	<div class="contact-me" id="hire-me">
-		<h3 class="contact-headline">Contact Me</h3>
+		<div class="contact-box">
+			<h1>Contact Me</h1>
 
-		<hr class="break" />
+			<hr class="gray" />
 
-		<p class="contact-info">
-			Currently entertaining new opportunities.
-			Please check out my resume above.
-			<p class="contact-email">
-				Check out my github portfolio:
-				<a href="https://github.com/jmoglesby" class="contact-link">
-					<i class="fa fa-github" aria-hidden="true"></i> jmoglesby
-				</a>
+			<p class="contact-info">
+				Currently entertaining new opportunities.
+				Please check out my resume above.
+				<p class="contact-email">
+					Check out my github portfolio:
+					<a href="https://github.com/jmoglesby" class="contact-link">
+						<i class="fa fa-github" aria-hidden="true"></i> jmoglesby
+					</a>
+				</p>
+				<p class="contact-email">
+					Get in touch via email:
+					<a href="mailto:iaminaband@gmail.com" class="contact-link">
+						iaminaband@gmail.com
+					</a>
+				</p>
 			</p>
-			<p class="contact-email">
-				Get in touch via email:
-				<a href="mailto:iaminaband@gmail.com" class="contact-link">
-					iaminaband@gmail.com
-				</a>
-			</p>
-		</p>
-
+		</div>
 	</div>
+
+	<small class="cr">Made with ❤️ by Jeremy Oglesby - 2019</small>
 
 	<script>
 		$(document).ready(function () {
