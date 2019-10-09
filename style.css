@@ -129,9 +129,26 @@ img {
 	width: 230px;
 }
 
+.github {
+	transition: transform 0.4s;
+}
+
+.github:hover {
+	transition: transform 0.4s;
+	transform: translate(2px, -2px);
+}
+
 .github > a {
 	text-decoration: none;
-	color: darkorchid;
+	transition: font-size 0.4s, text-shadow 0.4s;
+	color: rgb(89, 0, 255);
+	font-size: 100%;
+}
+
+.github > a:hover {
+	transition: font-size 0.4s, text-shadow 0.4s;
+	text-shadow: -2px 2px 5px #444;
+	font-size: 102%;
 }
 
 .content {
@@ -173,8 +190,23 @@ img {
 	margin-top: 50px;
 }
 
+.box > h4 > a > i {
+	transition: transform 0.4s;
+}
+
+.box > h4 > a > i:hover {
+	transition: transform 0.4s;
+	transform: translate(1px, -1px);
+}
+
 .box > h4 > a {
-	color: darkorchid;
+	color: rgb(89, 0, 255);
+	transition: text-shadow 0.4s;
+}
+
+.box > h4 > a:hover {
+	transition: text-shadow 0.4s;
+	text-shadow: -2px 2px 2px rgba(68, 68, 68, 0.801);
 }
 
 .clear {
@@ -251,9 +283,14 @@ img {
 	padding-bottom: 20px;
 }
 
+#expand-resume {
+	transition: text-shadow 0.4s;
+}
+
 #expand-resume:hover {
 	cursor: pointer;
-	text-shadow: 0px 0px 6px darkorchid;
+	transition: text-shadow 0.4s;
+	text-shadow: 0px 0px 6px rgb(89, 0, 255);
 }
 
 #resume {
