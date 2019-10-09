@@ -130,24 +130,27 @@ img {
 }
 
 .github {
-	transition: transform 0.4s;
+	transition: transform 0.4s ease;
+	width: 125px;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .github:hover {
-	transition: transform 0.4s;
-	transform: translate(2px, -2px);
+	transition: transform 0.4s ease;
+	transform: translate(2px, -1px);
 }
 
 .github > a {
 	text-decoration: none;
-	transition: font-size 0.4s, text-shadow 0.4s;
+	transition: font-size 0.4s ease, text-shadow 0.4s ease;
 	color: rgb(89, 0, 255);
 	font-size: 100%;
 }
 
-.github > a:hover {
-	transition: font-size 0.4s, text-shadow 0.4s;
-	text-shadow: -2px 2px 5px #444;
+.github:hover > a {
+	transition: font-size 0.4s ease, text-shadow 0.4s ease;
+	text-shadow: -1px 1px 2px #444;
 	font-size: 102%;
 }
 
@@ -191,7 +194,7 @@ img {
 }
 
 .box > h4 > a > i {
-	transition: transform 0.1s ease;
+	transition: transform 0.3s ease;
 }
 
 .box > h4 > a > i:hover {
@@ -201,7 +204,7 @@ img {
 
 .box > h4 > a {
 	color: rgb(89, 0, 255);
-	transition: text-shadow 0.1s ease;
+	transition: text-shadow 0.3s ease;
 }
 
 .box > h4 > a:hover {
