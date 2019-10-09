@@ -1121,12 +1121,12 @@
 			$('#expand-resume').click(function () {
 				var resume = $('#resume')
 				if (resume.data('state') === 'hidden') {
-					resume.slideDown();
+					resume.slideDown(1500);
 					resume.data('state', 'expanded');
 					$('#expand-icon').toggleClass('fa-chevron-circle-right');
 					$('#expand-icon').toggleClass('fa-chevron-circle-down');
 				} else {
-					resume.slideUp();
+					resume.slideUp(1500);
 					resume.data('state', 'hidden');
 					$('#expand-icon').toggleClass('fa-chevron-circle-right');
 					$('#expand-icon').toggleClass('fa-chevron-circle-down');
