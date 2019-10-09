@@ -191,21 +191,21 @@ img {
 }
 
 .box > h4 > a > i {
-	transition: transform 0.4s;
+	transition: transform 0.1s ease;
 }
 
 .box > h4 > a > i:hover {
-	transition: transform 0.4s;
+	transition: transform 0.4s ease;
 	transform: translate(1px, -1px);
 }
 
 .box > h4 > a {
 	color: rgb(89, 0, 255);
-	transition: text-shadow 0.4s;
+	transition: text-shadow 0.1s ease;
 }
 
 .box > h4 > a:hover {
-	transition: text-shadow 0.4s;
+	transition: text-shadow 0.4s ease;
 	text-shadow: -2px 2px 2px rgba(68, 68, 68, 0.801);
 }
 
@@ -215,6 +215,50 @@ img {
 
 .full-width {
 	width: 100%;
+}
+
+.app-img {
+	position: relative;
+}
+
+.app-img img {
+	transition: transform 0.4s, box-shadow 0.4s;
+	opacity: 1;
+}
+
+.app-img:hover img {
+	transition: transform 0.4s ease, box-shadow 0.4s ease;
+	box-shadow: -2px 5px 10px rgba(68, 68, 68, 0.863);
+	transform: translate(2px, -2px);
+}
+
+.overlay {
+	transition: transform 0.4s ease, opacity 0.4s ease;
+	opacity: 0;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	overflow: hidden;
+	width: 100%;
+	height: 100%;
+	border-radius: 10px;
+	text-align: center;
+	background-color: #8c8b8b;
+}
+
+.overlay > strong {
+	position: relative;
+	top: 45%;
+	font-size: 1.8em;
+	color: white;
+	text-shadow: 1px 1px 2px #444;
+}
+
+.app-img:hover .overlay	{
+	transition: transform 0.4s ease, opacity 2.8s ease;
+	opacity: 0.5;
+	transform: translate(2px, -2px)
 }
 
 .skill-and-tools {
