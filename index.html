@@ -37,7 +37,10 @@
 				<hr class="gray" />
 
 				<div class="github">
-					<a href="https://github.com/jmoglesby" target="_blank" rel="noopener noreferrer"><i class="fa fa-github" aria-hidden="true"></i> See my work!</a>
+					<a href="https://github.com/jmoglesby" target="_blank" rel="noopener noreferrer">
+						<i class="fa fa-github" aria-hidden="true"></i>
+						See my work!
+					</a>
 				</div>
 
 				<p class="bio">
@@ -70,7 +73,7 @@
 				<pre><code class="language-ruby">puts &quot;How many turns of FooBar should we play?&quot;
 	turns = gets.chomp.to_i
 
-	def foobar turns
+	def foobar(turns)
 			current_turn = 1
 			output = []
 
@@ -104,7 +107,7 @@
 				<pre><code class="language-ruby">class Image
 		attr_accessor :rows, :height, :length
 
-		def initialize rows
+		def initialize(rows)
 			@rows = rows
 			@height = rows.count
 			row_lengths = 0
@@ -130,7 +133,7 @@
 		end
 
 
-		def blur distance=1
+		def blur(distance=1)
 			fail "Distance supplied must be an integer!" unless distance.class == Integer
 
 			ones = []
@@ -200,8 +203,8 @@
 					</h4>
 
 					<p>
-						This program creates an class to simulate a pixilated
-						image, and implements an algorithm to simulate blurring
+						This program creates a class to simulate a pixilated
+						image with arrays, and implements an algorithm to simulate blurring
 						instances of an image by manipulating pixels based on
 						Manhattan distance from a focal point.
 					</p>
@@ -228,7 +231,7 @@
 				<pre><code class="language-ruby">class LinkedListNode
 		attr_accessor :value, :next_node
 
-		def initialize value, next_node=nil
+		def initialize(value, next_node=nil)
 			@value = value
 			@next_node = next_node
 		end
@@ -241,7 +244,7 @@
 			@data = nil
 		end
 
-		def push value
+		def push(value)
 			if @data == nil
 				@data = LinkedListNode.new(value)
 			else
@@ -261,7 +264,7 @@
 		end
 	end
 
-	def print_values list_node
+	def print_values(list_node)
 		if list_node
 			print "#{list_node.value} --> "
 			print_values list_node.next_node
@@ -306,40 +309,40 @@
 				<pre><code class="language-ruby">class LinkedListNode
 		attr_accessor :value, :next_node
 
-		def initialize value, next_node=nil
+		def initialize(value, next_node=nil)
 			@value = value
 			@next_node = next_node
 		end
 	end
 
-	def print_values list_node
+	def print_values(list_node)
 		if list_node
 			print "#{list_node.value} --> "
-			print_values list_node.next_node
+			print_values(list_node.next_node)
 		else
 			print "nil\n"
 			return
 		end
 	end
 
-	def reverse_list head, previous=nil
+	def reverse_list(head, previous=nil)
 		new_head = head.next_node
 		head.next_node = previous
 		if new_head
-			reverse_list new_head, head
+			reverse_list(new_head, head)
 		else
 			return head
 		end
 	end
 
-	def infinite_list? head
+	def infinite_list?(head)
 		tortoise = head
 		hare = head
 
-		return t_and_h_race tortoise, hare
+		return t_and_h_race(tortoise, hare)
 	end
 
-	def t_and_h_race tortoise, hare
+	def t_and_h_race(tortoise, hare)
 
 		tortoise = tortoise.next_node
 		if hare.next_node
@@ -353,7 +356,7 @@
 		elsif tortoise == hare
 			return true
 		else
-			t_and_h_race tortoise, hare
+			t_and_h_race(tortoise, hare)
 		end
 
 	end
@@ -915,26 +918,6 @@
 			</div>
 
 			<div class="box">
-				<h4>Splurty</h4>
-
-				<div class="app-img">
-					<a href='https://splurty-jeremy-oglesby.herokuapp.com' target="_blank">
-						<img src="app-screenshots/splurty.png" class="full-width" />
-						<div class="overlay">
-							<strong>View App</strong>
-						</div>
-					</a>
-				</div>
-
-				<p>
-					A database-powered quote generator with a mobile-first
-					design, using the Ruby on Rails framework, HTML, and CSS.
-					Uses Git and GitHub for version control, and launched
-					on Heroku.
-				</p>
-			</div>
-
-			<div class="box">
 				<h4>Nomster</h4>
 
 				<div class="app-img">
@@ -947,13 +930,11 @@
 				</div>
 
 				<p>
-					A Yelp clone that integrates with the Google Maps API
+					A Yelp clone built in Rails that integrates with the Google Maps API
 					and includes features like user comments, star ratings,
 					image uploading, and user authentication.
 				</p>
 			</div>
-
-			<br class="clear" />
 
 			<div class="box">
 				<h4>Flixter</h4>
@@ -970,9 +951,12 @@
 				<p>
 					An app that emulates an online video learning platform. Integrates
 					video uploads with AWS content management, and credit card payment
-					via the Stripe API.
+					via the Stripe API. Built in Rails and utilizes nested and
+					namespaced resources.
 				</p>
 			</div>
+
+			<br class="clear" />
 
 			<div class="box">
 				<h4>React Developer Story</h4>
@@ -991,6 +975,26 @@
 					I have been learning and building as a developer - a sort of
 					adjunct to this portfolio page. It demonstrates basic knowledge
 					of the React.js framework and building a componentized UI.
+				</p>
+			</div>
+
+			<div class="box">
+				<h4>React Notes App</h4>
+
+				<div class="app-img">
+					<a href='https://note-app-jeremy-oglesby.herokuapp.com' target="_blank">
+						<img src="app-screenshots/note.png" class="full-width" />
+						<div class="overlay">
+							<strong>View App</strong>
+						</div>
+					</a>
+				</div>
+
+				<p>
+					A React.js notes app built on top of a Rails API. Demonstrates use of
+					multiple interacting componenets, maintenance of state, and passing of
+					both data and functional props. Persists CRUD operations to a Postgres
+					database via endpoints on a Rails server.
 				</p>
 			</div>
 
